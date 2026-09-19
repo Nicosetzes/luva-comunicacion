@@ -13,9 +13,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap"
     />
+    <link
+      rel="stylesheet"
+      media="print"
+      onload="this.media = 'all'"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+      />
+    </noscript>
     <link rel="stylesheet" href="styles.css" />
     <script src="scripts.js" defer></script>
   </head>
@@ -23,15 +36,17 @@
     <nav id="nav">
       <div class="nav-inner">
         <a href="#inicio" class="nav-logo" aria-label="LUVA Comunicación">
-          <img alt="LUVA Comunicación" src="./media/luva.png" />
+          <img
+            alt="LUVA Comunicación"
+            fetchpriority="high"
+            height="350"
+            src="./media/luva.png"
+            width="350"
+          />
         </a>
         <ul class="nav-links">
           <li>
-            <a
-              href="#tipos-de-eventos"
-              style="color: var(--vino); font-weight: 500"
-              >Eventos</a
-            >
+            <a href="#tipos-de-eventos" class="nav-featured">Eventos</a>
           </li>
           <li><a href="#nosotros">Nosotros</a></li>
           <li><a href="#sectores">Sectores</a></li>
@@ -48,7 +63,7 @@
     </nav>
     <div class="mobile-menu" id="mobileMenu">
       <button class="mobile-menu-close" id="menuClose">✕</button>
-      <a href="#tipos-de-eventos" onclick="closeMM()" style="color: var(--vino)"
+      <a href="#tipos-de-eventos" onclick="closeMM()" class="nav-featured"
         >Eventos</a
       >
       <a href="#nosotros" onclick="closeMM()">Nosotros</a>
@@ -103,7 +118,13 @@
         </div>
         <div class="hero-right">
           <div class="hero-logo-wrap">
-            <img alt="LUVA Comunicación" src="./media/luva.png" />
+            <img
+              alt="LUVA Comunicación"
+              fetchpriority="high"
+              height="350"
+              src="./media/luva.png"
+              width="350"
+            />
           </div>
           <div class="hero-stats">
             <div class="stat-row">
@@ -269,41 +290,21 @@
         </div>
       </div>
     </section>
-    <section
-      id="tipos-de-eventos"
-      style="background: var(--cream); padding: 5.5rem 0"
-    >
+    <section id="tipos-de-eventos">
       <div class="wrap">
         <div class="reveal">
           <p class="eyebrow">Qué producimos</p>
           <h2 class="title">
             Eventos corporativos <em>para cada objetivo</em>
           </h2>
-          <p
-            style="
-              font-size: 0.97rem;
-              font-weight: 300;
-              line-height: 1.85;
-              color: var(--text-mid);
-              max-width: 620px;
-              margin-bottom: 3.5rem;
-            "
-          >
+          <p class="section-intro">
             Desde una conferencia anual hasta una cena de fin de año o un
             roadshow nacional. Cada formato tiene su lógica, su protocolo y su
             oportunidad de posicionamiento. Nosotros lo sabemos — y lo
             ejecutamos.
           </p>
         </div>
-        <div
-          style="
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-            gap: 2px;
-            border-top: 1.5px solid rgba(139, 58, 58, 0.12);
-            border-left: 1.5px solid rgba(139, 58, 58, 0.12);
-          "
-        >
+        <div class="eventos-grid">
           <div class="evento-tipo reveal">
             <div class="et-icon">
               <svg
@@ -762,13 +763,12 @@
             </p>
           </div>
         </div>
-        <div style="margin-top: 3rem; text-align: center">
+        <div class="section-cta">
           <a
             href="https://wa.me/5492235911777?text=Hola%20LUVA%2C%20quiero%20consultar%20sobre%20un%20evento%20corporativo"
             target="_blank"
             rel="noopener"
             class="btn-wa"
-            style="display: inline-flex; gap: 0.6rem; align-items: center"
           >
             <svg width="17" height="17" viewBox="0 0 24 24" fill="white">
               <path
@@ -783,25 +783,17 @@
         </div>
       </div>
     </section>
-    <section id="sectores" style="background: var(--cream); padding: 5.5rem 0">
+    <section id="sectores">
       <div class="wrap">
         <div class="clientes-grid">
           <div class="reveal">
             <p class="eyebrow">Con quiénes trabajamos</p>
             <h2 class="title">Sectores que <em>valoran la presencia</em></h2>
-            <p
-              style="
-                font-size: 0.97rem;
-                font-weight: 300;
-                line-height: 1.85;
-                color: var(--text-mid);
-                margin-bottom: 0;
-              "
-            >
+            <p class="section-intro">
               Trabajamos con empresas y organizaciones de los sectores que más
               valoran la presencia como herramienta de negocio y diferenciación.
             </p>
-            <div class="pills-grid" style="margin-top: 2rem">
+            <div class="pills-grid">
               <div class="pill">Real Estate</div>
               <div class="pill">Salud &amp; Medicina</div>
               <div class="pill">Tecnología</div>
@@ -831,7 +823,7 @@
             <p class="eyebrow">Lo que hacemos</p>
             <h2 class="title">Servicios <em>integrales</em> de presencia</h2>
           </div>
-          <p class="services-intro-text">
+          <p class="section-intro">
             Cada servicio puede funcionar de forma independiente o combinada,
             creando una propuesta integral de presencia de marca para tu
             empresa.
@@ -1030,7 +1022,6 @@
       </div>
     </section>
 
-    <!-- PORTFOLIO -->
     <section id="portfolio">
       <div class="wrap">
         <div class="reveal">
@@ -1038,7 +1029,7 @@
           <h2 class="title">
             Eventos &amp; Stands <em>que hablan</em> por sí solos
           </h2>
-          <p class="portfolio-intro-text">
+          <p class="section-intro">
             Trabajamos con marcas que entienden que la presencia lo es todo.
             Estos son algunos de los proyectos que gestionamos.
           </p>
@@ -1052,11 +1043,25 @@
             aria-label="Ampliar imagen 1"
             onkeydown="if (event.key === 'Enter') lb(0);"
           >
-            <img
-              alt="Stand Bagó Neuronovo — Congreso médico"
-              loading="lazy"
-              src="./media/stand-corporativo-01.jpg"
-            />
+            <picture>
+              <source
+                type="image/webp"
+                sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 34px), 505px"
+                srcset="
+                  ./media/stand-corporativo-01-400.webp   400w,
+                  ./media/stand-corporativo-01-800.webp   800w,
+                  ./media/stand-corporativo-01-1086.webp 1086w
+                "
+              />
+              <img
+                alt="Stand Bagó Neuronovo — Congreso médico"
+                src="./media/stand-corporativo-01.jpg"
+                width="1086"
+                height="1448"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
             <div class="p-overlay">
               <div class="p-overlay-inner">
                 <div class="p-zoom">
@@ -1076,11 +1081,25 @@
             aria-label="Ampliar imagen 2"
             onkeydown="if (event.key === 'Enter') lb(1);"
           >
-            <img
-              alt="Stand La Victoria — Mar del Plata"
-              loading="lazy"
-              src="./media/stand-corporativo-02.jpg"
-            />
+            <picture>
+              <source
+                type="image/webp"
+                sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 34px), 320px"
+                srcset="
+                  ./media/stand-corporativo-02-400.webp   400w,
+                  ./media/stand-corporativo-02-800.webp   800w,
+                  ./media/stand-corporativo-02-1086.webp 1086w
+                "
+              />
+              <img
+                alt="Stand La Victoria — Mar del Plata"
+                src="./media/stand-corporativo-02.jpg"
+                width="1086"
+                height="1448"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
             <div class="p-overlay">
               <div class="p-overlay-inner">
                 <div class="p-zoom">
@@ -1100,11 +1119,25 @@
             aria-label="Ampliar imagen 3"
             onkeydown="if (event.key === 'Enter') lb(2);"
           >
-            <img
-              alt="Stand Lindsay — Tecnología de riego"
-              loading="lazy"
-              src="./media/stand-corporativo-03.jpg"
-            />
+            <picture>
+              <source
+                type="image/webp"
+                sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 34px), 320px"
+                srcset="
+                  ./media/stand-corporativo-03-400.webp   400w,
+                  ./media/stand-corporativo-03-800.webp   800w,
+                  ./media/stand-corporativo-03-1086.webp 1086w
+                "
+              />
+              <img
+                alt="Stand Lindsay — Tecnología de riego"
+                src="./media/stand-corporativo-03.jpg"
+                width="1086"
+                height="1448"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
             <div class="p-overlay">
               <div class="p-overlay-inner">
                 <div class="p-zoom">
@@ -1124,11 +1157,26 @@
             aria-label="Ampliar imagen 4"
             onkeydown="if (event.key === 'Enter') lb(3);"
           >
-            <img
-              alt="Activación Rappi Velo — Playa Mar del Plata"
-              loading="lazy"
-              src="./media/stand-corporativo-04.jpg"
-            />
+            <picture>
+              <source
+                type="image/webp"
+                sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 34px), 533px"
+                srcset="
+                  ./media/stand-corporativo-04-400.webp   400w,
+                  ./media/stand-corporativo-04-800.webp   800w,
+                  ./media/stand-corporativo-04-1200.webp 1200w,
+                  ./media/stand-corporativo-04-1600.webp 1600w
+                "
+              />
+              <img
+                alt="Activación Rappi Velo — Playa Mar del Plata"
+                src="./media/stand-corporativo-04.jpg"
+                width="1600"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
             <div class="p-overlay">
               <div class="p-overlay-inner">
                 <div class="p-zoom">
@@ -1148,11 +1196,25 @@
             aria-label="Ampliar imagen 5"
             onkeydown="if (event.key === 'Enter') lb(4);"
           >
-            <img
-              alt="Stand Aperol Spritz — Retail"
-              loading="lazy"
-              src="./media/stand-corporativo-05.jpg"
-            />
+            <picture>
+              <source
+                type="image/webp"
+                sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 34px), 320px"
+                srcset="
+                  ./media/stand-corporativo-05-400.webp   400w,
+                  ./media/stand-corporativo-05-800.webp   800w,
+                  ./media/stand-corporativo-05-1086.webp 1086w
+                "
+              />
+              <img
+                alt="Stand Aperol Spritz — Retail"
+                src="./media/stand-corporativo-05.jpg"
+                width="1086"
+                height="1448"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
             <div class="p-overlay">
               <div class="p-overlay-inner">
                 <div class="p-zoom">
@@ -1195,7 +1257,10 @@
           <polyline points="15 18 9 12 15 6" />
         </svg>
       </button>
-      <img class="lb-img" id="lbImg" src="" alt="" />
+      <picture>
+        <source id="lbSource" type="image/webp" />
+        <img class="lb-img" id="lbImg" src="" alt=""
+      /></picture>
       <button class="lb-btn lb-next" onclick="moveLB(1)" aria-label="Siguiente">
         <svg
           width="18"
@@ -1218,41 +1283,17 @@
     </div>
     <section id="promotoras">
       <div class="wrap">
-        <div
-          class="reveal"
-          style="max-width: 820px; margin: 0 auto; text-align: center"
-        >
-          <p class="eyebrow" style="justify-content: center">
-            Selección de Staff
-          </p>
+        <div class="reveal section-head-center">
+          <p class="eyebrow">Selección de Staff</p>
           <h2 class="title">Promotoras que <em>representan</em> tu marca</h2>
-          <p
-            style="
-              font-size: 1rem;
-              font-weight: 300;
-              line-height: 1.9;
-              color: var(--text-mid);
-              margin-bottom: 3.5rem;
-            "
-          >
+          <p class="section-intro">
             Contamos con un pool de promotoras seleccionadas por perfil,
             presencia y actitud. Cada asignación considera la identidad visual
             de tu marca y los objetivos del evento. No mandamos personal —
             formamos representantes.
           </p>
         </div>
-        <div
-          style="
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2px;
-            border-top: 1.5px solid rgba(139, 58, 58, 0.12);
-            border-left: 1.5px solid rgba(139, 58, 58, 0.12);
-            max-width: 960px;
-            margin: 0 auto;
-          "
-          class="reveal d1"
-        >
+        <div class="promo-feat-grid reveal d1">
           <div class="promo-feat-card">
             <div class="promo-feat-icon">
               <svg viewBox="0 0 24 24">

@@ -32,32 +32,64 @@ const ro = new IntersectionObserver(
 
 document.querySelectorAll(".reveal").forEach((el) => ro.observe(el));
 
-const imgs = [
+const GALLERY = [
   {
     alt: "Stand Bagó Neuronovo",
-    src: "./media/stand-corporativo-01.jpg"
+    base: "stand-corporativo-01",
+    ext: "jpg",
+    width: 1086,
+    height: 1448,
+    widths: [400, 800, 1086],
   },
   {
     alt: "Stand La Victoria",
-    src: "./media/stand-corporativo-02.jpg"
+    base: "stand-corporativo-02",
+    ext: "jpg",
+    width: 1086,
+    height: 1448,
+    widths: [400, 800, 1086],
   },
   {
     alt: "Stand Lindsay",
-    src: "./media/stand-corporativo-03.jpg"
+    base: "stand-corporativo-03",
+    ext: "jpg",
+    width: 1086,
+    height: 1448,
+    widths: [400, 800, 1086],
   },
   {
     alt: "Activación Rappi Velo",
-    src: "./media/stand-corporativo-04.jpg"
+    base: "stand-corporativo-04",
+    ext: "jpg",
+    width: 1600,
+    height: 900,
+    widths: [400, 800, 1200, 1600],
   },
   {
     alt: "Stand Aperol Spritz",
-    src: "./media/stand-corporativo-05.jpg"
+    base: "stand-corporativo-05",
+    ext: "jpg",
+    width: 1086,
+    height: 1448,
+    widths: [400, 800, 1086],
   },
 ];
+
+const imgs = GALLERY.map((item) => ({
+  alt: item.alt,
+  src: `./media/${item.base}.${item.ext}`,
+  srcset: item.widths
+    .map((w) => `./media/${item.base}-${w}.webp ${w}w`)
+    .join(", "),
+  sizes: `min(78vw, ${Math.round((76 * item.width) / item.height)}vh)`,
+  width: item.width,
+  height: item.height,
+}));
 
 let cur = 0;
 const lbEl = document.getElementById("lightbox");
 const lbImg = document.getElementById("lbImg");
+const lbSource = document.getElementById("lbSource");
 const lbCount = document.getElementById("lbCount");
 const lbDots = document.getElementById("lbDots");
 
@@ -74,22 +106,27 @@ function updateDots(i) {
     .forEach((d, idx) => d.classList.toggle("active", idx === i));
 }
 
-function lb(i) {
+function showLB(i) {
+  const img = imgs[i];
   cur = i;
-  lbImg.src = imgs[i].src;
-  lbImg.alt = imgs[i].alt;
+  lbSource.sizes = img.sizes;
+  lbSource.srcset = img.srcset;
+  lbImg.width = img.width;
+  lbImg.height = img.height;
+  lbImg.alt = img.alt;
+  lbImg.src = img.src;
   lbCount.textContent = "0" + (i + 1) + " / 0" + imgs.length;
   updateDots(i);
+}
+
+function lb(i) {
+  showLB(i);
   lbEl.classList.add("open");
   document.body.style.overflow = "hidden";
 }
 
 function goLB(i) {
-  cur = i;
-  lbImg.src = imgs[i].src;
-  lbImg.alt = imgs[i].alt;
-  lbCount.textContent = "0" + (i + 1) + " / 0" + imgs.length;
-  updateDots(i);
+  showLB(i);
 }
 
 function closeLB() {
@@ -109,10 +146,7 @@ function moveLB(d) {
   lbImg.style.transform = "scale(0.96)";
   lbImg.style.transition = "opacity 0.18s,transform 0.18s";
   setTimeout(() => {
-    lbImg.src = imgs[cur].src;
-    lbImg.alt = imgs[cur].alt;
-    lbCount.textContent = "0" + (cur + 1) + " / 0" + imgs.length;
-    updateDots(cur);
+    showLB(cur);
     lbImg.style.opacity = "1";
     lbImg.style.transform = "scale(1)";
     setTimeout(() => {
