@@ -1,15 +1,46 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LUVA Comunicación | Promotoras & Staff en Argentina</title>
+    <title>Promotoras y personal para eventos en Mar del Plata | LUVA</title>
     <meta
       name="description"
-      content="Promotoras y staff para eventos y activaciones en todo el país. Seleccionamos personal capacitado para eventos corporativos, acciones promocionales, ruteos y puntos de venta (PDV)."
+      content="Seleccionamos y coordinamos promotoras y personal para eventos en Mar del Plata y otras ciudades de Argentina. Consultá disponibilidad para tu acción."
     />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="LUVA Comunicación" />
+    <meta name="theme-color" content="#6e2a2a" />
+    <link rel="canonical" href="https://luvacomunicacion.com/" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LUVA Comunicación" />
+    <meta
+      property="og:title"
+      content="Promotoras y personal para eventos en Mar del Plata | LUVA"
+    />
+    <meta
+      property="og:description"
+      content="Seleccionamos y coordinamos personal para congresos, exposiciones, ferias y activaciones."
+    />
+    <meta property="og:url" content="https://luvacomunicacion.com/" />
+    <meta
+      property="og:image"
+      content="https://luvacomunicacion.com/media/stand-corporativo-04.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Promotoras y personal para eventos | LUVA"
+    />
+    <meta
+      name="twitter:description"
+      content="Personal para eventos en Mar del Plata y cobertura en Argentina."
+    />
+    <meta
+      name="twitter:image"
+      content="https://luvacomunicacion.com/media/stand-corporativo-04.jpg"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,1404 +60,671 @@
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap"
       />
     </noscript>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="scripts.js" defer></script>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/scripts.js" defer></script>
   </head>
   <body>
-    <nav id="nav">
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <nav class="site-nav" id="nav" aria-label="Navegación principal">
       <div class="nav-inner">
-        <a href="#inicio" class="nav-logo" aria-label="LUVA Comunicación">
-          <img
-            alt="LUVA Comunicación"
-            fetchpriority="high"
-            height="350"
-            src="./media/luva.png"
-            width="350"
-          />
+        <a
+          href="/"
+          class="nav-logo"
+          aria-label="LUVA Comunicación — Inicio"
+          aria-current="page"
+        >
+          <img src="/media/luva.png" alt="" width="350" height="350" />
         </a>
         <ul class="nav-links">
-          <li>
-            <a href="#tipos-de-eventos" class="nav-featured">Eventos</a>
-          </li>
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="#sectores">Sectores</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#paquetes">Paquetes</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#promotoras">Staff</a></li>
-          <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+          <li><a href="/" aria-current="page">Inicio</a></li>
+          <li><a href="/servicios/">Servicios</a></li>
+          <li><a href="/#galeria">Galería</a></li>
+          <li><a href="/#cobertura">Cobertura</a></li>
+          <li><a href="/#nosotros">Quiénes somos</a></li>
+          <li><a class="nav-staff" href="/#staff">Sumate al staff</a></li>
+          <li><a class="nav-cta" href="/contacto/">Contacto</a></li>
         </ul>
-        <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-label="Abrir menú"
+          aria-controls="mobileMenu"
+          aria-expanded="false"
+        >
           <span></span><span></span><span></span>
         </button>
       </div>
     </nav>
-    <div class="mobile-menu" id="mobileMenu">
-      <button class="mobile-menu-close" id="menuClose">✕</button>
-      <a href="#tipos-de-eventos" onclick="closeMM()" class="nav-featured"
-        >Eventos</a
+    <div
+      class="mobile-menu"
+      id="mobileMenu"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Menú de navegación"
+      aria-hidden="true"
+    >
+      <button
+        class="mobile-menu-close"
+        id="menuClose"
+        type="button"
+        aria-label="Cerrar menú"
       >
-      <a href="#nosotros" onclick="closeMM()">Nosotros</a>
-      <a href="#sectores" onclick="closeMM()">Sectores</a>
-      <a href="#servicios" onclick="closeMM()">Servicios</a>
-      <a href="#paquetes" onclick="closeMM()">Paquetes</a>
-      <a href="#portfolio" onclick="closeMM()">Portfolio</a>
-      <a href="#promotoras" onclick="closeMM()">Staff</a>
-      <a
-        href="https://wa.me/5492235911777"
-        target="_blank"
-        rel="noopener"
-        onclick="closeMM()"
-        >WhatsApp</a
-      >
+        ✕
+      </button>
+      <a href="/" aria-current="page">Inicio</a>
+      <a href="/servicios/">Servicios</a>
+      <a href="/#galeria">Galería</a>
+      <a href="/#cobertura">Cobertura</a>
+      <a href="/#nosotros">Quiénes somos</a>
+      <a class="nav-staff" href="/#staff">Sumate al staff</a>
+      <a class="nav-cta" href="/contacto/">Contacto</a>
     </div>
-    <section class="hero" id="inicio">
-      <div class="wrap hero-layout">
-        <div class="hero-left">
-          <p class="hero-eyebrow">
-            Eventos Corporativos · Mar del Plata · Argentina
-          </p>
-          <h1 class="hero-title">Eventos <em>&amp;</em> Presencia</h1>
-          <p class="hero-tagline">
-            Eventos corporativos que generan presencia y prensa.
-          </p>
-          <p class="hero-desc">
-            Diseñamos y producimos conferencias, congresos, lanzamientos de
-            productos, ferias comerciales y activaciones de marca en todo el
-            país. Con visión estratégica de comunicación desde el primer
-            briefing.
-          </p>
-          <div class="hero-btns">
-            <a href="#servicios" class="btn-primary">Ver servicios</a>
-            <a
-              href="https://wa.me/5492235911777?text=Hola%20LUVA%2C%20quiero%20consultar%20sobre%20sus%20servicios"
-              target="_blank"
-              rel="noopener"
-              class="btn-wa"
-            >
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="white">
-                <path
-                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
-                />
-                <path
-                  d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.112 1.522 5.844L.054 23.5l5.82-1.527A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.87 9.87 0 01-5.03-1.374l-.36-.214-3.733.979 1-3.635-.235-.374A9.856 9.856 0 012.105 12C2.105 6.525 6.525 2.105 12 2.105S21.894 6.525 21.894 12 17.475 21.894 12 21.894z"
-                />
-              </svg>
-              Escribinos
-            </a>
+
+    <main id="contenido">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="wrap hero-layout">
+          <div class="hero-left">
+            <p class="hero-eyebrow">Promotoras · Staff · Equipos</p>
+            <h1 class="hero-title" id="hero-title">
+              Promotoras <em>&amp;</em> staff en Mar del Plata
+            </h1>
+            <p class="hero-tagline">
+              El equipo que representa tu marca empieza mucho antes del evento.
+            </p>
+            <p class="hero-desc">
+              Seleccionamos y coordinamos personal para congresos, exposiciones,
+              ferias y activaciones. Base en Mar del Plata y cobertura en
+              distintos puntos del país.
+            </p>
+            <div class="button-row">
+              <a class="btn-primary" href="/contacto/?servicio=personal"
+                >Solicitá personal</a
+              >
+              <a class="btn-secondary" href="/servicios/">Ver servicios</a>
+            </div>
           </div>
-        </div>
-        <div class="hero-right">
-          <div class="hero-logo-wrap">
-            <img
-              alt="LUVA Comunicación"
-              fetchpriority="high"
-              height="350"
-              src="./media/luva.png"
-              width="350"
-            />
-          </div>
-          <div class="hero-stats">
-            <div class="stat-row">
-              <svg
-                class="stat-row-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                <path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5" />
-              </svg>
-              <div class="stat-row-text">Formación en Relaciones Públicas</div>
+          <div class="hero-right" aria-hidden="true">
+            <div class="hero-logo-wrap">
+              <img
+                src="/media/luva.png"
+                alt=""
+                width="350"
+                height="350"
+                fetchpriority="high"
+              />
             </div>
-            <div class="stat-row">
-              <svg
-                class="stat-row-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-              </svg>
-              <div class="stat-row-text">9 servicios integrados</div>
-            </div>
-            <div class="stat-row">
-              <svg
-                class="stat-row-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
-                />
-                <circle cx="12" cy="9" r="2.5" />
-              </svg>
-              <div class="stat-row-text">
-                Argentina <span>Operamos en todo el país</span>
-              </div>
-            </div>
-            <div class="stat-row">
-              <svg
-                class="stat-row-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                <path d="M2 12l10 5 10-5" />
-                <path d="M2 17l10 5 10-5" />
-              </svg>
-              <div class="stat-row-text">
-                +8 sectores <span>con experiencia activa</span>
-              </div>
+            <div class="hero-points">
+              <div class="hero-point">Base en Mar del Plata</div>
+              <div class="hero-point">Personal para eventos</div>
+              <div class="hero-point">Cobertura en Argentina</div>
+              <div class="hero-point">Visión estratégica de marca</div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker-inner">
-        <b>Conferencias</b>&nbsp;•&nbsp;Congresos&nbsp;•&nbsp;<b
-          >Lanzamientos de Productos</b
-        >&nbsp;•&nbsp;Ferias Comerciales&nbsp;•&nbsp;<b>Team Building</b
-        >&nbsp;•&nbsp;Workshops&nbsp;•&nbsp;<b>Networking Events</b
-        >&nbsp;•&nbsp;Premiaciones&nbsp;•&nbsp;<b>Desayunos Ejecutivos</b
-        >&nbsp;•&nbsp;Kick Off Meetings&nbsp;•&nbsp;<b>Activaciones de Marca</b
-        >&nbsp;•&nbsp;Capacitaciones&nbsp;•&nbsp;<b>Eventos Híbridos</b
-        >&nbsp;•&nbsp;Stands &amp;
-        Expos&nbsp;•&nbsp;<b>Conferencias</b>&nbsp;•&nbsp;Congresos&nbsp;•&nbsp;<b
-          >Lanzamientos de Productos</b
-        >&nbsp;•&nbsp;Ferias Comerciales&nbsp;•&nbsp;<b>Team Building</b
-        >&nbsp;•&nbsp;Workshops&nbsp;•&nbsp;<b>Networking Events</b
-        >&nbsp;•&nbsp;Premiaciones&nbsp;•&nbsp;<b>Desayunos Ejecutivos</b
-        >&nbsp;•&nbsp;Kick Off Meetings&nbsp;•&nbsp;<b>Activaciones de Marca</b
-        >&nbsp;•&nbsp;Capacitaciones&nbsp;•&nbsp;<b>Eventos Híbridos</b
-        >&nbsp;•&nbsp;Stands &amp; Expos
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-inner">
+          <strong>Promotoras</strong> · Personal para congresos ·
+          <strong>Ferias y exposiciones</strong> · Activaciones de marca ·
+          <strong>Eventos corporativos</strong> · Mar del Plata ·
+          <strong>Promotoras</strong> · Personal para congresos ·
+          <strong>Ferias y exposiciones</strong> · Activaciones de marca ·
+          <strong>Eventos corporativos</strong> · Mar del Plata ·
+        </div>
       </div>
-    </div>
 
-    <section id="nosotros">
-      <div class="wrap">
-        <div class="nosotros-grid">
+      <section class="brands-section" aria-labelledby="brands-title">
+        <div class="wrap">
+          <h2 class="brands-title" id="brands-title">
+            Marcas que confían en nosotros
+          </h2>
+          <div class="brands-grid">
+            <div class="brand-logo">
+              <img
+                src="/media/logo-bago.png"
+                alt="Bagó"
+                width="612"
+                height="272"
+                loading="lazy"
+              />
+            </div>
+            <div class="brand-logo">
+              <img
+                src="/media/logo-apas.png"
+                alt="APAS"
+                width="447"
+                height="447"
+                loading="lazy"
+              />
+            </div>
+            <div class="brand-logo">
+              <img
+                src="/media/logo-velo.png"
+                alt="VELO"
+                width="240"
+                height="122"
+                loading="lazy"
+              />
+            </div>
+            <div class="brand-logo">
+              <img
+                src="/media/logo-bat.png"
+                alt="BAT"
+                width="308"
+                height="138"
+                loading="lazy"
+              />
+            </div>
+            <div class="brand-logo">
+              <img
+                src="/media/logo-loreal.png"
+                alt="L'Oréal"
+                width="225"
+                height="225"
+                loading="lazy"
+              />
+            </div>
+            <div class="brand-logo">
+              <img
+                src="/media/logo-phillip-morris.png"
+                alt="Philip Morris"
+                width="360"
+                height="339"
+                loading="lazy"
+              />
+            </div>
+            <div class="brand-logo">
+              <img
+                src="/media/logo-la-victoria.png"
+                alt="La Victoria"
+                width="200"
+                height="200"
+                loading="lazy"
+              />
+            </div>
+            <div class="brand-logo">
+              <img
+                src="/media/logo-rappi.png"
+                alt="Rappi"
+                width="3840"
+                height="1613"
+                loading="lazy"
+              />
+            </div>
+            <div class="brand-logo">
+              <img
+                src="/media/logo-volkswagen.png"
+                alt="Volkswagen"
+                width="960"
+                height="960"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section section-cream"
+        id="servicios-destacados"
+        aria-labelledby="services-title"
+      >
+        <div class="wrap">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Lo que hacemos</p>
+            <h2 class="title" id="services-title">
+              Presencia que se <em>construye</em> desde el equipo
+            </h2>
+            <p class="section-lead">
+              Personal, producción y comunicación alineados con una misma idea:
+              que tu marca se vea, se sienta y sea recordada.
+            </p>
+          </div>
+          <div class="services-summary-grid reveal">
+            <article class="service-summary primary">
+              <span class="service-number">01</span>
+              <h3>Promotoras y personal para eventos</h3>
+              <p>
+                Seleccionamos el perfil adecuado para representar tu marca en
+                congresos, exposiciones, ferias, stands y activaciones.
+              </p>
+              <a class="service-link" href="/servicios/#personal-para-eventos"
+                >Conocé el servicio →</a
+              >
+            </article>
+            <article class="service-summary">
+              <span class="service-number">02</span>
+              <h3>Eventos corporativos en Mar del Plata</h3>
+              <p>
+                Congresos, encuentros empresariales y experiencias de marca con
+                presencia y coordinación local.
+              </p>
+              <a
+                class="service-link"
+                href="/servicios/#eventos-corporativos-mar-del-plata"
+                >Ver eventos →</a
+              >
+            </article>
+            <article class="service-summary">
+              <span class="service-number">03</span>
+              <h3>Imagen y comunicación corporativa</h3>
+              <p>
+                Una mirada estratégica para sostener una presencia coherente
+                antes, durante y después de cada acción.
+              </p>
+              <a
+                class="service-link"
+                href="/servicios/#comunicacion-corporativa"
+                >Ver comunicación →</a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="galeria" aria-labelledby="gallery-title">
+        <div class="wrap">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Galería</p>
+            <h2 class="title" id="gallery-title">
+              Trabajos que hablan <em>por sí solos</em>
+            </h2>
+            <p class="section-lead">
+              Personas, espacios y experiencias pensadas para representar cada
+              marca con presencia real.
+            </p>
+          </div>
+
+          <div class="gallery-block reveal">
+            <h3 class="gallery-subtitle">
+              Promotoras que <em>representan</em> tu marca
+            </h3>
+            <div class="gallery-grid">
+              <button
+                class="gallery-item"
+                type="button"
+                data-gallery-item
+                aria-label="Ampliar imagen de promotora en evento"
+              >
+                <picture>
+                  <source
+                    type="image/webp"
+                    sizes="(max-width: 560px) 100vw, 33vw"
+                    srcset="
+                      /media/promotora-01-400.webp   400w,
+                      /media/promotora-01-800.webp   800w,
+                      /media/promotora-01-1086.webp 1086w
+                    "
+                  />
+                  <img
+                    src="/media/promotora-01.jpg"
+                    alt="Promotora representando una marca en un evento"
+                    width="1086"
+                    height="1448"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+                <span class="gallery-overlay">Promotoras &amp; Staff</span>
+              </button>
+              <button
+                class="gallery-item"
+                type="button"
+                data-gallery-item
+                aria-label="Ampliar imagen de equipo promocional"
+              >
+                <picture>
+                  <source
+                    type="image/webp"
+                    sizes="(max-width: 560px) 100vw, 33vw"
+                    srcset="
+                      /media/promotora-02-400.webp   400w,
+                      /media/promotora-02-800.webp   800w,
+                      /media/promotora-02-1086.webp 1086w
+                    "
+                  />
+                  <img
+                    src="/media/promotora-02.jpg"
+                    alt="Equipo promocional preparado para una acción de marca"
+                    width="1086"
+                    height="1448"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+                <span class="gallery-overlay">Presencia de marca</span>
+              </button>
+              <button
+                class="gallery-item"
+                type="button"
+                data-gallery-item
+                aria-label="Ampliar imagen de staff en activación"
+              >
+                <picture>
+                  <source
+                    type="image/webp"
+                    sizes="(max-width: 560px) 100vw, 33vw"
+                    srcset="
+                      /media/promotora-03-400.webp   400w,
+                      /media/promotora-03-800.webp   800w,
+                      /media/promotora-03-1086.webp 1086w
+                    "
+                  />
+                  <img
+                    src="/media/promotora-03.jpg"
+                    alt="Staff de LUVA durante una activación"
+                    width="1086"
+                    height="1448"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+                <span class="gallery-overlay">Activaciones</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="gallery-block reveal">
+            <h3 class="gallery-subtitle">
+              Eventos &amp; stands que <em>dejan presencia</em>
+            </h3>
+            <div class="gallery-grid">
+              <button
+                class="gallery-item"
+                type="button"
+                data-gallery-item
+                aria-label="Ampliar imagen del stand Bagó"
+              >
+                <picture>
+                  <source
+                    type="image/webp"
+                    sizes="(max-width: 560px) 100vw, 33vw"
+                    srcset="
+                      /media/stand-corporativo-01-400.webp   400w,
+                      /media/stand-corporativo-01-800.webp   800w,
+                      /media/stand-corporativo-01-1086.webp 1086w
+                    "
+                  />
+                  <img
+                    src="/media/stand-corporativo-01.jpg"
+                    alt="Stand corporativo de Bagó en un congreso"
+                    width="1086"
+                    height="1448"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+                <span class="gallery-overlay">Congresos</span>
+              </button>
+              <button
+                class="gallery-item"
+                type="button"
+                data-gallery-item
+                aria-label="Ampliar imagen del stand La Victoria"
+              >
+                <picture>
+                  <source
+                    type="image/webp"
+                    sizes="(max-width: 560px) 100vw, 33vw"
+                    srcset="
+                      /media/stand-corporativo-02-400.webp   400w,
+                      /media/stand-corporativo-02-800.webp   800w,
+                      /media/stand-corporativo-02-1086.webp 1086w
+                    "
+                  />
+                  <img
+                    src="/media/stand-corporativo-02.jpg"
+                    alt="Stand de La Victoria en Mar del Plata"
+                    width="1086"
+                    height="1448"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+                <span class="gallery-overlay">Ferias &amp; Expos</span>
+              </button>
+              <button
+                class="gallery-item"
+                type="button"
+                data-gallery-item
+                aria-label="Ampliar imagen del stand Lindsay"
+              >
+                <picture>
+                  <source
+                    type="image/webp"
+                    sizes="(max-width: 560px) 100vw, 33vw"
+                    srcset="
+                      /media/stand-corporativo-03-400.webp   400w,
+                      /media/stand-corporativo-03-800.webp   800w,
+                      /media/stand-corporativo-03-1086.webp 1086w
+                    "
+                  />
+                  <img
+                    src="/media/stand-corporativo-03.jpg"
+                    alt="Stand corporativo de Lindsay"
+                    width="1086"
+                    height="1448"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+                <span class="gallery-overlay">Stands</span>
+              </button>
+              <button
+                class="gallery-item wide"
+                type="button"
+                data-gallery-item
+                aria-label="Ampliar imagen de activación Rappi y VELO"
+              >
+                <picture>
+                  <source
+                    type="image/webp"
+                    sizes="(max-width: 560px) 100vw, 66vw"
+                    srcset="
+                      /media/stand-corporativo-04-400.webp   400w,
+                      /media/stand-corporativo-04-800.webp   800w,
+                      /media/stand-corporativo-04-1200.webp 1200w,
+                      /media/stand-corporativo-04-1600.webp 1600w
+                    "
+                  />
+                  <img
+                    src="/media/stand-corporativo-04.jpg"
+                    alt="Activación de Rappi y VELO en Mar del Plata"
+                    width="1600"
+                    height="900"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+                <span class="gallery-overlay">Activaciones de marca</span>
+              </button>
+              <button
+                class="gallery-item"
+                type="button"
+                data-gallery-item
+                aria-label="Ampliar imagen del stand Aperol Spritz"
+              >
+                <picture>
+                  <source
+                    type="image/webp"
+                    sizes="(max-width: 560px) 100vw, 33vw"
+                    srcset="
+                      /media/stand-corporativo-05-400.webp   400w,
+                      /media/stand-corporativo-05-800.webp   800w,
+                      /media/stand-corporativo-05-1086.webp 1086w
+                    "
+                  />
+                  <img
+                    src="/media/stand-corporativo-05.jpg"
+                    alt="Stand de Aperol Spritz"
+                    width="1086"
+                    height="1448"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+                <span class="gallery-overlay">Experiencias de marca</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section section-cream"
+        id="cobertura"
+        aria-labelledby="coverage-title"
+      >
+        <div class="wrap coverage-layout">
           <div class="reveal">
+            <p class="eyebrow">Cobertura</p>
+            <h2 class="title" id="coverage-title">
+              El alcance correcto para <em>cada servicio</em>
+            </h2>
+            <p class="section-lead">
+              Armamos equipos en distintos puntos del país y concentramos la
+              producción presencial de eventos corporativos en Mar del Plata.
+            </p>
+            <ul class="scope-list">
+              <li class="scope-item">
+                <strong>Promotoras &amp; personal</strong
+                ><span
+                  >Mar del Plata y cobertura en ciudades de Argentina.</span
+                >
+              </li>
+              <li class="scope-item">
+                <strong>Eventos corporativos</strong
+                ><span
+                  >Producción y coordinación presencial en Mar del Plata.</span
+                >
+              </li>
+              <li class="scope-item">
+                <strong>Comunicación corporativa</strong
+                ><span>Servicios que pueden trabajarse de forma remota.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="coverage-panel reveal reveal-delay-1">
+            <h3>Personal donde tu marca lo necesita.</h3>
+            <p>
+              Una red de cobertura pensada para acompañar congresos,
+              exposiciones, ferias y activaciones.
+            </p>
+            <ul class="coverage-list">
+              <li>Buenos Aires / CABA</li>
+              <li>La Plata</li>
+              <li>Mar del Plata</li>
+              <li>Costa Atlántica</li>
+              <li>Rosario</li>
+              <li>Santa Fe</li>
+              <li>Córdoba</li>
+              <li>Mendoza</li>
+              <li>Neuquén</li>
+              <li>Bariloche</li>
+              <li>Tucumán</li>
+              <li>Salta</li>
+              <li>Misiones</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="nosotros" aria-labelledby="about-title">
+        <div class="wrap about-layout">
+          <div class="about-copy reveal">
             <p class="eyebrow">Quiénes somos</p>
-            <h2 class="title">
+            <h2 class="title" id="about-title">
               Más que una agencia — <em>una consultora</em> de presencia
             </h2>
-            <p class="about-lead">
+            <p>
               Cada evento, cada activación y cada stand es una oportunidad
               estratégica para construir percepción y diferenciarse.
             </p>
-            <div class="about-body">
-              <p>
-                Somos una consultora de presencia y experiencia de marca con
-                base en Argentina y alcance en todo el país. Trabajamos con
-                empresas y organizaciones que entienden que la presencia pública
-                es la herramienta más poderosa de diferenciación.
-              </p>
-              <p>
-                Combinamos formación en relaciones públicas, imagen
-                institucional y comunicación estratégica para diseñar
-                experiencias que posicionen a nuestros clientes exactamente como
-                quieren ser percibidos: con autoridad, coherencia y presencia
-                real.
-              </p>
-              <p>
-                Dirigimos, conceptualizamos y coordinamos cada proyecto con
-                visión estratégica. El resultado: menos riesgo operativo, mayor
-                coherencia de marca y resultados que se miden.
-              </p>
-            </div>
+            <p>
+              Combinamos formación en relaciones públicas, imagen institucional
+              y comunicación estratégica para diseñar experiencias coherentes
+              con la identidad de cada marca.
+            </p>
+            <p>
+              Dirigimos, conceptualizamos y coordinamos cada proyecto con una
+              mirada integral: qué querés comunicar, a quién y cómo necesitás
+              ser percibido.
+            </p>
           </div>
-          <div class="values-stack reveal d2">
-            <div class="value-item">
-              <div class="value-num">01</div>
-              <div class="value-body">
-                <h4>Imagen sobre logística</h4>
+          <ol class="values-list reveal reveal-delay-1">
+            <li class="value-item">
+              <span class="value-number">01</span>
+              <div>
+                <h3>Selección con propósito</h3>
                 <p>
-                  No competimos por precio. Competimos por percepción, presencia
-                  y experiencia de marca.
+                  Cada perfil se elige según la identidad de tu marca y el
+                  contexto del evento.
                 </p>
               </div>
-            </div>
-            <div class="value-item">
-              <div class="value-num">02</div>
-              <div class="value-body">
-                <h4>Visión estratégica</h4>
+            </li>
+            <li class="value-item">
+              <span class="value-number">02</span>
+              <div>
+                <h3>Visión estratégica</h3>
                 <p>
-                  Cada proyecto parte de una lectura institucional: qué quiere
-                  comunicar tu marca y a quién.
+                  La presencia empieza en el briefing y atraviesa cada decisión.
                 </p>
               </div>
-            </div>
-            <div class="value-item">
-              <div class="value-num">03</div>
-              <div class="value-body">
-                <h4>Resultados medibles</h4>
+            </li>
+            <li class="value-item">
+              <span class="value-number">03</span>
+              <div>
+                <h3>Coherencia de marca</h3>
                 <p>
-                  Menos riesgo operativo, mayor coherencia de marca. Cada
-                  decisión tiene propósito estratégico.
+                  Personas, espacio y comunicación trabajando con una misma
+                  dirección.
                 </p>
               </div>
-            </div>
-          </div>
+            </li>
+          </ol>
         </div>
-      </div>
-    </section>
-    <section id="tipos-de-eventos">
-      <div class="wrap">
-        <div class="reveal">
-          <p class="eyebrow">Qué producimos</p>
-          <h2 class="title">
-            Eventos corporativos <em>para cada objetivo</em>
-          </h2>
-          <p class="section-intro">
-            Desde una conferencia anual hasta una cena de fin de año o un
-            roadshow nacional. Cada formato tiene su lógica, su protocolo y su
-            oportunidad de posicionamiento. Nosotros lo sabemos — y lo
-            ejecutamos.
-          </p>
-        </div>
-        <div class="eventos-grid">
-          <div class="evento-tipo reveal">
-            <div class="et-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              </svg>
-            </div>
-            <h3 class="et-title">Conferencias</h3>
-            <p class="et-desc">
-              Conferencias anuales, charlas de liderazgo y apertura de congresos
-              con impacto institucional.
-            </p>
-          </div>
+      </section>
 
-          <div class="evento-tipo reveal d1">
-            <div class="et-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                <path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5" />
-              </svg>
-            </div>
-            <h3 class="et-title">Congresos y seminarios</h3>
-            <p class="et-desc">
-              Congresos médicos, tecnológicos, jurídicos y sectoriales.
-              Producción integral en todo el país.
-            </p>
-          </div>
-
-          <div class="evento-tipo reveal d2">
-            <div class="et-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                <path d="M2 12l10 5 10-5" />
-                <path d="M2 17l10 5 10-5" />
-              </svg>
-            </div>
-            <h3 class="et-title">Lanzamientos de productos</h3>
-            <p class="et-desc">
-              Apps, servicios, colecciones o desarrollos inmobiliarios. Del
-              briefing al impacto mediático.
-            </p>
-          </div>
-
-          <div class="evento-tipo reveal d3">
-            <div class="et-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="5" r="2" />
-                <circle cx="5" cy="19" r="2" />
-                <circle cx="19" cy="19" r="2" />
-                <path d="M12 7v4M12 11l-5.5 6M12 11l5.5 6" />
-              </svg>
-            </div>
-            <h3 class="et-title">Team building</h3>
-            <p class="et-desc">
-              Jornadas de cohesión, dinámicas motivacionales y actividades
-              corporativas con propósito.
-            </p>
-          </div>
-
-          <div class="evento-tipo reveal">
-            <div class="et-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M3 21h18M5 21V9l7-5 7 5v12M10 21v-5h4v5" />
-              </svg>
-            </div>
-            <h3 class="et-title">Ferias y exposiciones</h3>
-            <p class="et-desc">
-              Diseño de stand, activación en expo y presencia de marca en ferias
-              comerciales sectoriales.
-            </p>
-          </div>
-
-          <div class="evento-tipo reveal d1">
-            <div class="et-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-              </svg>
-            </div>
-            <h3 class="et-title">Workshops y talleres</h3>
-            <p class="et-desc">
-              Formatos participativos de aprendizaje: IA aplicada, innovación,
-              liderazgo y comunicación.
-            </p>
-          </div>
-
-          <div class="evento-tipo reveal d2">
-            <div class="et-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-                />
-              </svg>
-            </div>
-            <h3 class="et-title">Networking events</h3>
-            <p class="et-desc">
-              After office empresarial, encuentros de inversores, speed
-              networking y eventos de vinculación.
-            </p>
-          </div>
-
-          <div class="evento-tipo reveal d3">
-            <div class="et-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="8" r="6" />
-                <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
-              </svg>
-            </div>
-            <h3 class="et-title">Premiaciones</h3>
-            <p class="et-desc">
-              Entrega de premios internos, aniversarios de empresa y ceremonias
-              de distinción corporativa.
-            </p>
-          </div>
-
-          <div class="evento-tipo reveal">
-            <div class="et-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M18 8h-1a5 5 0 0 0-5 5v8M6 3v18M9 3v3a3 3 0 0 1-6 0V3"
-                />
-              </svg>
-            </div>
-            <h3 class="et-title">Desayunos y almuerzos ejecutivos</h3>
-            <p class="et-desc">
-              Encuentros íntimos con clientes VIP, directorios y socios clave en
-              formato de alto nivel.
-            </p>
-          </div>
-
-          <div class="evento-tipo reveal d1">
-            <div class="et-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-              </svg>
-            </div>
-            <h3 class="et-title">Kick off meetings</h3>
-            <p class="et-desc">
-              Inicio anual de ventas, lanzamiento de proyectos y arranque de
-              temporada con energía y foco.
-            </p>
-          </div>
-
-          <div class="evento-tipo reveal d2">
-            <div class="et-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M9 18V5l12-2v13" />
-                <circle cx="6" cy="18" r="3" />
-                <circle cx="18" cy="16" r="3" />
-              </svg>
-            </div>
-            <h3 class="et-title">Activaciones de marca</h3>
-            <p class="et-desc">
-              Eventos experienciales en shopping, vía pública o espacios de alto
-              tráfico. Presencia real.
-            </p>
-          </div>
-
-          <div class="evento-tipo reveal d3">
-            <div class="et-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-              </svg>
-            </div>
-            <h3 class="et-title">Capacitaciones internas</h3>
-            <p class="et-desc">
-              Training comercial, onboarding corporativo y programas de
-              desarrollo de equipos.
-            </p>
-          </div>
-
-          <div class="evento-tipo reveal">
-            <div class="et-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
-                />
-                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-              </svg>
-            </div>
-            <h3 class="et-title">Cenas y almuerzos de fin de año</h3>
-            <p class="et-desc">
-              Cierre de año con identidad de marca: producción, ambientación,
-              entretenimiento y protocolo.
-            </p>
-          </div>
-
-          <div class="evento-tipo reveal d1">
-            <div class="et-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg>
-            </div>
-            <h3 class="et-title">Experiencias para clientes</h3>
-            <p class="et-desc">
-              Eventos diseñados para fidelizar y sorprender: showrooms,
-              degustaciones, visitas exclusivas.
-            </p>
-          </div>
-
-          <div class="evento-tipo reveal d2">
-            <div class="et-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M3 21h18M3 10h18M5 21V10M19 21V10M12 3l9 7H3l9-7z" />
-              </svg>
-            </div>
-            <h3 class="et-title">Encuentros institucionales</h3>
-            <p class="et-desc">
-              Eventos para organismos, cámaras, fundaciones y entidades públicas
-              con protocolo institucional.
-            </p>
-          </div>
-
-          <div class="evento-tipo reveal d3">
-            <div class="et-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M17 1l4 4-4 4" />
-                <path d="M3 11V9a4 4 0 0 1 4-4h14" />
-                <path d="M7 23l-4-4 4-4" />
-                <path d="M21 13v2a4 4 0 0 1-4 4H3" />
-              </svg>
-            </div>
-            <h3 class="et-title">Rondas de negocios</h3>
-            <p class="et-desc">
-              Espacios estructurados de vinculación B2B. Matchmaking empresarial
-              con coordinación integral.
-            </p>
-          </div>
-
-          <div class="evento-tipo reveal">
-            <div class="et-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                <polyline points="9 22 9 12 15 12 15 22" />
-              </svg>
-            </div>
-            <h3 class="et-title">Open House y visitas guiadas</h3>
-            <p class="et-desc">
-              Apertura de instalaciones, recorridos corporativos y
-              presentaciones de infraestructura a stakeholders.
-            </p>
-          </div>
-
-          <div class="evento-tipo reveal d1">
-            <div class="et-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <path
-                  d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-                />
-              </svg>
-            </div>
-            <h3 class="et-title">Roadshows y giras comerciales</h3>
-            <p class="et-desc">
-              Presencia en múltiples ciudades con coherencia de marca.
-              Logística, producción y supervisión integral.
-            </p>
-          </div>
-
-          <div class="evento-tipo reveal d2">
-            <div class="et-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2"
-                />
-                <path d="M4 12H2v8h2" />
-                <path d="M4 8H2v2h2" />
-                <path d="M8 8h8M8 12h8M8 16h5" />
-              </svg>
-            </div>
-            <h3 class="et-title">Eventos para prensa y medios</h3>
-            <p class="et-desc">
-              Press days, lanzamientos con cobertura mediática y gestión de
-              acreditaciones para periodistas.
-            </p>
-          </div>
-
-          <div class="evento-tipo reveal d3">
-            <div class="et-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
-            </div>
-            <h3 class="et-title">Viajes e incentivos</h3>
-            <p class="et-desc">
-              Programas de incentivos para equipos de alto rendimiento.
-              Logística, experiencia y reconocimiento.
-            </p>
-          </div>
-
-          <div class="evento-tipo reveal">
-            <div class="et-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9" />
-                <path d="M12 8v4l3 3" />
-                <path
-                  d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
-                />
-              </svg>
-            </div>
-            <h3 class="et-title">Eventos experienciales</h3>
-            <p class="et-desc">
-              Experiencias inmersivas que conectan emocionalmente al público con
-              la marca. Creatividad y estrategia.
-            </p>
-          </div>
-        </div>
-        <div class="section-cta">
-          <a
-            href="https://wa.me/5492235911777?text=Hola%20LUVA%2C%20quiero%20consultar%20sobre%20un%20evento%20corporativo"
-            target="_blank"
-            rel="noopener"
-            class="btn-wa"
-          >
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="white">
-              <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
-              />
-              <path
-                d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.112 1.522 5.844L.054 23.5l5.82-1.527A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.87 9.87 0 01-5.03-1.374l-.36-.214-3.733.979 1-3.635-.235-.374A9.856 9.856 0 012.105 12C2.105 6.525 6.525 2.105 12 2.105S21.894 6.525 21.894 12 17.475 21.894 12 21.894z"
-              />
-            </svg>
-            Consultá tu evento
-          </a>
-        </div>
-      </div>
-    </section>
-    <section id="sectores">
-      <div class="wrap">
-        <div class="clientes-grid">
+      <section class="callout" aria-labelledby="callout-title">
+        <div class="wrap callout-inner">
           <div class="reveal">
-            <p class="eyebrow">Con quiénes trabajamos</p>
-            <h2 class="title">Sectores que <em>valoran la presencia</em></h2>
-            <p class="section-intro">
-              Trabajamos con empresas y organizaciones de los sectores que más
-              valoran la presencia como herramienta de negocio y diferenciación.
+            <h2 class="callout-title" id="callout-title">
+              ¿Necesitás personal o presencia de marca para un <em>evento</em>?
+            </h2>
+            <p class="section-lead">
+              Contanos la ciudad, la fecha y qué necesitás. Empezamos por
+              entender el objetivo.
             </p>
-            <div class="pills-grid">
-              <div class="pill">Real Estate</div>
-              <div class="pill">Salud &amp; Medicina</div>
-              <div class="pill">Tecnología</div>
-              <div class="pill">Gastronomía</div>
-              <div class="pill">Automotriz</div>
-              <div class="pill">Instituciones</div>
-              <div class="pill">Entretenimiento</div>
-              <div class="pill">Cámaras &amp; Asociaciones</div>
-              <div class="pill">Política</div>
-              <div class="pill">Educación</div>
-            </div>
           </div>
-          <div class="clientes-quote reveal d2">
-            <blockquote>
-              "La presencia no es lo que mostrás — es lo que quedó en la mente
-              de quien te vio."
-            </blockquote>
-            <cite>— LUVA Comunicación</cite>
-          </div>
+          <a class="btn-wa" href="/contacto/">Contanos tu proyecto</a>
         </div>
-      </div>
-    </section>
-    <section id="servicios">
-      <div class="wrap">
-        <div class="services-header reveal">
-          <div>
-            <p class="eyebrow">Lo que hacemos</p>
-            <h2 class="title">Servicios <em>integrales</em> de presencia</h2>
-          </div>
-          <p class="section-intro">
-            Cada servicio puede funcionar de forma independiente o combinada,
-            creando una propuesta integral de presencia de marca para tu
-            empresa.
-          </p>
-        </div>
-        <div class="services-grid">
-          <div class="service-card reveal">
-            <span class="svc-num">1</span>
-            <h3 class="svc-title">Diseño &amp; Armado de Stands</h3>
-            <p class="svc-desc">
-              Diseñamos y coordinamos la presencia de tu marca en ferias,
-              exposiciones y congresos de todo el país. Concepto, producción,
-              iluminación, visual y supervisión en sitio.
-            </p>
-            <div class="svc-tags">
-              <span class="svc-tag">Diseño conceptual</span
-              ><span class="svc-tag">Producción</span
-              ><span class="svc-tag">Iluminación</span>
-            </div>
-          </div>
-          <div class="service-card reveal d1">
-            <span class="svc-num">2</span>
-            <h3 class="svc-title">Eventos Corporativos</h3>
-            <p class="svc-desc">
-              Lanzamientos, conferencias, networking, inauguraciones y eventos
-              de prensa. Visión estratégica desde el primer briefing.
-            </p>
-            <div class="svc-tags">
-              <span class="svc-tag">Lanzamientos</span
-              ><span class="svc-tag">Networking</span
-              ><span class="svc-tag">Protocolo</span>
-            </div>
-          </div>
-          <div class="service-card reveal d2">
-            <span class="svc-num">3</span>
-            <h3 class="svc-title">Activaciones &amp; Promotoría</h3>
-            <p class="svc-desc">
-              Activaciones estratégicas para ferias, puntos de venta, eventos
-              masivos y acciones BTL. Coordinamos el staff y la narrativa de
-              marca.
-            </p>
-            <div class="svc-tags">
-              <span class="svc-tag">Staff premium</span
-              ><span class="svc-tag">BTL</span
-              ><span class="svc-tag">Sampling</span>
-            </div>
-          </div>
-          <div class="service-card reveal">
-            <span class="svc-num">4</span>
-            <h3 class="svc-title">Imagen Institucional</h3>
-            <p class="svc-desc">
-              Diagnóstico de imagen, protocolo empresarial, comunicación
-              ejecutiva y personal branding para líderes y organizaciones.
-            </p>
-            <div class="svc-tags">
-              <span class="svc-tag">Diagnóstico</span
-              ><span class="svc-tag">CEO Presence</span
-              ><span class="svc-tag">Protocolo</span>
-            </div>
-          </div>
-          <div class="service-card reveal d1">
-            <span class="svc-num">5</span>
-            <h3 class="svc-title">Brand Content &amp; Redes</h3>
-            <p class="svc-desc">
-              Transformamos cada evento en activos de comunicación: reels,
-              coberturas, recaps y contenido para redes.
-            </p>
-            <div class="svc-tags">
-              <span class="svc-tag">Reels</span
-              ><span class="svc-tag">Recap</span
-              ><span class="svc-tag">Storytelling</span>
-            </div>
-          </div>
-          <div class="service-card reveal d2">
-            <span class="svc-num">6</span>
-            <h3 class="svc-title">Consultoría de Presencia</h3>
-            <p class="svc-desc">
-              Estrategia integral para empresas que quieren posicionarse con
-              coherencia en su mercado.
-            </p>
-            <div class="svc-tags">
-              <span class="svc-tag">Estrategia</span
-              ><span class="svc-tag">Relaciones públicas</span
-              ><span class="svc-tag">Posicionamiento</span>
-            </div>
-          </div>
-          <div class="service-card reveal">
-            <span class="svc-num">7</span>
-            <h3 class="svc-title">Selección de Promotoras</h3>
-            <p class="svc-desc">
-              Seleccionamos, capacitamos y coordinamos el personal que
-              representa tu marca en eventos, ferias y puntos de venta en todo
-              el país.
-            </p>
-            <div class="svc-tags">
-              <span class="svc-tag">Selección premium</span
-              ><span class="svc-tag">Capacitación</span
-              ><span class="svc-tag">Todo Argentina</span>
-            </div>
-          </div>
-          <div class="service-card reveal d1">
-            <span class="svc-num">8</span>
-            <h3 class="svc-title">Manejo de Redes Sociales</h3>
-            <p class="svc-desc">
-              Creamos y gestionamos el contenido digital de tu marca con la
-              misma visión estratégica que aplicamos en cada evento.
-            </p>
-            <div class="svc-tags">
-              <span class="svc-tag">Instagram</span
-              ><span class="svc-tag">Reels</span
-              ><span class="svc-tag">Comunidad</span>
-            </div>
-          </div>
-          <div class="service-card reveal d2">
-            <span class="svc-num">9</span>
-            <h3 class="svc-title">Relaciones con Prensa e Influencers</h3>
-            <p class="svc-desc">
-              Gestionamos el vínculo entre tu marca y los medios, periodistas e
-              influencers relevantes para tu sector.
-            </p>
-            <div class="svc-tags">
-              <span class="svc-tag">Prensa</span
-              ><span class="svc-tag">Gacetillas</span
-              ><span class="svc-tag">Influencers</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="paquetes">
-      <div class="wrap">
-        <div class="reveal">
-          <p class="eyebrow">Cómo trabajamos</p>
-          <h2 class="title title-white">Propuestas <em>a medida</em></h2>
-        </div>
-        <div class="packages-grid">
-          <div class="pkg-card reveal">
-            <p class="pkg-tier">Presencia Inicial</p>
-            <h3 class="pkg-title">Activación de Marca</h3>
-            <ul class="pkg-list">
-              <li>Consultoría de imagen inicial</li>
-              <li>Diseño de concepto visual</li>
-              <li>Coordinación de staff</li>
-              <li>Supervisión en evento</li>
-              <li>Informe post-evento</li>
-            </ul>
+      <section class="section" id="staff" aria-labelledby="staff-title">
+        <div class="wrap">
+          <div class="staff-card reveal">
+            <div>
+              <p class="eyebrow">Quiero ser parte</p>
+              <h2 id="staff-title">¿Querés sumarte a nuestro staff?</h2>
+              <p>
+                Enviá tu CV actualizado y fotos recientes. En el asunto del
+                email, indicá tu ciudad y edad. Este canal es exclusivo para
+                postulaciones.
+              </p>
+            </div>
             <a
-              href="https://wa.me/5492235911777?text=Hola%20LUVA%2C%20me%20interesa%20el%20paquete%20Activaci%C3%B3n%20de%20Marca"
-              target="_blank"
-              rel="noopener"
-              class="pkg-cta"
-              >Consultar por WhatsApp</a
-            >
-          </div>
-          <div class="pkg-card featured reveal d1">
-            <div class="pkg-badge">Más elegido</div>
-            <p class="pkg-tier">Presencia Estratégica</p>
-            <h3 class="pkg-title">Experiencia de Marca Integral</h3>
-            <ul class="pkg-list">
-              <li>Estrategia de presencia completa</li>
-              <li>Diseño &amp; armado de stand</li>
-              <li>Selección y capacitación de staff</li>
-              <li>Eventos corporativos</li>
-              <li>Brand content &amp; cobertura</li>
-              <li>Consultoría de imagen</li>
-            </ul>
-            <a
-              href="https://wa.me/5492235911777?text=Hola%20LUVA%2C%20me%20interesa%20el%20paquete%20Experiencia%20Integral"
-              target="_blank"
-              rel="noopener"
-              class="pkg-cta"
-              >Consultar por WhatsApp</a
-            >
-          </div>
-          <div class="pkg-card reveal d2">
-            <p class="pkg-tier">Presencia Total</p>
-            <h3 class="pkg-title">Comunicación 360°</h3>
-            <ul class="pkg-list">
-              <li>Todo el paquete estratégico</li>
-              <li>Gestión de redes sociales</li>
-              <li>Relaciones con prensa</li>
-              <li>Consultoría mensual</li>
-              <li>Personal branding ejecutivo</li>
-              <li>Estrategia de influencers</li>
-            </ul>
-            <a
-              href="https://wa.me/5492235911777?text=Hola%20LUVA%2C%20me%20interesa%20el%20paquete%20Comunicaci%C3%B3n%20360"
-              target="_blank"
-              rel="noopener"
-              class="pkg-cta"
-              >Consultar por WhatsApp</a
+              class="btn-secondary"
+              href="mailto:comunicacionluva@gmail.com?subject=Postulaci%C3%B3n%20Staff%20-%20Ciudad%20-%20Edad"
+              >Enviar mi CV</a
             >
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <section id="portfolio">
-      <div class="wrap">
-        <div class="reveal">
-          <p class="eyebrow">Portfolio</p>
-          <h2 class="title">
-            Eventos &amp; Stands <em>que hablan</em> por sí solos
-          </h2>
-          <p class="section-intro">
-            Trabajamos con marcas que entienden que la presencia lo es todo.
-            Estos son algunos de los proyectos que gestionamos.
-          </p>
-        </div>
-        <div class="portfolio-mosaic">
-          <div
-            class="p-item reveal"
-            onclick="lb(0)"
-            tabindex="0"
-            role="button"
-            aria-label="Ampliar imagen 1"
-            onkeydown="if (event.key === 'Enter') lb(0);"
-          >
-            <picture>
-              <source
-                type="image/webp"
-                sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 34px), 505px"
-                srcset="
-                  ./media/stand-corporativo-01-400.webp   400w,
-                  ./media/stand-corporativo-01-800.webp   800w,
-                  ./media/stand-corporativo-01-1086.webp 1086w
-                "
-              />
-              <img
-                alt="Stand Bagó Neuronovo — Congreso médico"
-                src="./media/stand-corporativo-01.jpg"
-                width="1086"
-                height="1448"
-                loading="lazy"
-                decoding="async"
-              />
-            </picture>
-            <div class="p-overlay">
-              <div class="p-overlay-inner">
-                <div class="p-zoom">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-                  </svg>
-                </div>
-                <span>Ampliar</span>
-              </div>
-            </div>
-          </div>
-          <div
-            class="p-item reveal d1"
-            onclick="lb(1)"
-            tabindex="0"
-            role="button"
-            aria-label="Ampliar imagen 2"
-            onkeydown="if (event.key === 'Enter') lb(1);"
-          >
-            <picture>
-              <source
-                type="image/webp"
-                sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 34px), 320px"
-                srcset="
-                  ./media/stand-corporativo-02-400.webp   400w,
-                  ./media/stand-corporativo-02-800.webp   800w,
-                  ./media/stand-corporativo-02-1086.webp 1086w
-                "
-              />
-              <img
-                alt="Stand La Victoria — Mar del Plata"
-                src="./media/stand-corporativo-02.jpg"
-                width="1086"
-                height="1448"
-                loading="lazy"
-                decoding="async"
-              />
-            </picture>
-            <div class="p-overlay">
-              <div class="p-overlay-inner">
-                <div class="p-zoom">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-                  </svg>
-                </div>
-                <span>Ampliar</span>
-              </div>
-            </div>
-          </div>
-          <div
-            class="p-item reveal d2"
-            onclick="lb(2)"
-            tabindex="0"
-            role="button"
-            aria-label="Ampliar imagen 3"
-            onkeydown="if (event.key === 'Enter') lb(2);"
-          >
-            <picture>
-              <source
-                type="image/webp"
-                sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 34px), 320px"
-                srcset="
-                  ./media/stand-corporativo-03-400.webp   400w,
-                  ./media/stand-corporativo-03-800.webp   800w,
-                  ./media/stand-corporativo-03-1086.webp 1086w
-                "
-              />
-              <img
-                alt="Stand Lindsay — Tecnología de riego"
-                src="./media/stand-corporativo-03.jpg"
-                width="1086"
-                height="1448"
-                loading="lazy"
-                decoding="async"
-              />
-            </picture>
-            <div class="p-overlay">
-              <div class="p-overlay-inner">
-                <div class="p-zoom">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-                  </svg>
-                </div>
-                <span>Ampliar</span>
-              </div>
-            </div>
-          </div>
-          <div
-            class="p-item reveal"
-            onclick="lb(3)"
-            tabindex="0"
-            role="button"
-            aria-label="Ampliar imagen 4"
-            onkeydown="if (event.key === 'Enter') lb(3);"
-          >
-            <picture>
-              <source
-                type="image/webp"
-                sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 34px), 533px"
-                srcset="
-                  ./media/stand-corporativo-04-400.webp   400w,
-                  ./media/stand-corporativo-04-800.webp   800w,
-                  ./media/stand-corporativo-04-1200.webp 1200w,
-                  ./media/stand-corporativo-04-1600.webp 1600w
-                "
-              />
-              <img
-                alt="Activación Rappi Velo — Playa Mar del Plata"
-                src="./media/stand-corporativo-04.jpg"
-                width="1600"
-                height="900"
-                loading="lazy"
-                decoding="async"
-              />
-            </picture>
-            <div class="p-overlay">
-              <div class="p-overlay-inner">
-                <div class="p-zoom">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-                  </svg>
-                </div>
-                <span>Ampliar</span>
-              </div>
-            </div>
-          </div>
-          <div
-            class="p-item reveal d1"
-            onclick="lb(4)"
-            tabindex="0"
-            role="button"
-            aria-label="Ampliar imagen 5"
-            onkeydown="if (event.key === 'Enter') lb(4);"
-          >
-            <picture>
-              <source
-                type="image/webp"
-                sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 34px), 320px"
-                srcset="
-                  ./media/stand-corporativo-05-400.webp   400w,
-                  ./media/stand-corporativo-05-800.webp   800w,
-                  ./media/stand-corporativo-05-1086.webp 1086w
-                "
-              />
-              <img
-                alt="Stand Aperol Spritz — Retail"
-                src="./media/stand-corporativo-05.jpg"
-                width="1086"
-                height="1448"
-                loading="lazy"
-                decoding="async"
-              />
-            </picture>
-            <div class="p-overlay">
-              <div class="p-overlay-inner">
-                <div class="p-zoom">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-                  </svg>
-                </div>
-                <span>Ampliar</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="lb" id="lightbox" role="dialog" aria-modal="true">
-      <button class="lb-close" onclick="closeLB()" aria-label="Cerrar">
-        <svg
-          width="13"
-          height="13"
-          viewBox="0 0 13 13"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.6"
-          stroke-linecap="round"
-        >
-          <path d="M1 1l11 11M12 1L1 12" />
-        </svg>
-      </button>
-      <button class="lb-btn lb-prev" onclick="moveLB(-1)" aria-label="Anterior">
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.6"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <polyline points="15 18 9 12 15 6" />
-        </svg>
-      </button>
-      <picture>
-        <source id="lbSource" type="image/webp" />
-        <img class="lb-img" id="lbImg" src="" alt=""
-      /></picture>
-      <button class="lb-btn lb-next" onclick="moveLB(1)" aria-label="Siguiente">
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.6"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <polyline points="9 18 15 12 9 6" />
-        </svg>
-      </button>
-      <div class="lb-footer">
-        <div class="lb-brand">LUVA Comunicación</div>
-        <div class="lb-dots" id="lbDots"></div>
-        <div class="lb-count" id="lbCount"></div>
-      </div>
-    </div>
-    <section id="promotoras">
-      <div class="wrap">
-        <div class="reveal section-head-center">
-          <p class="eyebrow">Selección de Staff</p>
-          <h2 class="title">Promotoras que <em>representan</em> tu marca</h2>
-          <p class="section-intro">
-            Contamos con un pool de promotoras seleccionadas por perfil,
-            presencia y actitud. Cada asignación considera la identidad visual
-            de tu marca y los objetivos del evento. No mandamos personal —
-            formamos representantes.
-          </p>
-        </div>
-        <div class="promo-feat-grid reveal d1">
-          <div class="promo-feat-card">
-            <div class="promo-feat-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              </svg>
-            </div>
-            <div>
-              <div class="promo-feat-title">Selección personalizada</div>
-              <div class="promo-feat-desc">
-                Elegimos el perfil adecuado según la identidad de tu marca y el
-                tipo de evento.
-              </div>
-            </div>
-          </div>
-          <div class="promo-feat-card">
-            <div class="promo-feat-icon">
-              <svg viewBox="0 0 24 24">
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-              </svg>
-            </div>
-            <div>
-              <div class="promo-feat-title">Capacitadas para tu producto</div>
-              <div class="promo-feat-desc">
-                Briefing previo completo para que cada promotora represente tu
-                marca con precisión.
-              </div>
-            </div>
-          </div>
-          <div class="promo-feat-card">
-            <div class="promo-feat-icon">
-              <svg viewBox="0 0 24 24">
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
-                />
-                <circle cx="12" cy="9" r="2.5" />
-              </svg>
-            </div>
-            <div>
-              <div class="promo-feat-title">Cobertura en todo el país</div>
-              <div class="promo-feat-desc">
-                Armamos equipos para eventos en Mar del Plata, Buenos Aires,
-                Córdoba y más ciudades.
-              </div>
-            </div>
-          </div>
-          <div class="promo-feat-card">
-            <div class="promo-feat-icon">
-              <svg viewBox="0 0 24 24">
-                <polyline points="9 11 12 14 22 4" />
-                <path
-                  d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"
-                />
-              </svg>
-            </div>
-            <div>
-              <div class="promo-feat-title">Coordinación a cargo de LUVA</div>
-              <div class="promo-feat-desc">
-                Supervisamos cada activación para garantizar resultados
-                consistentes y profesionales.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="contacto">
-      <div class="wrap">
-        <div class="reveal">
-          <p class="eyebrow">Hablemos</p>
-          <h2 class="contacto-title">
-            ¿Listo para ser <em>visto</em> como merecés?
-          </h2>
-          <p class="contacto-desc">
-            Contanos tu proyecto y te proponemos cómo llevar la presencia de tu
-            marca al siguiente nivel. Respondemos rápido por WhatsApp.
-          </p>
-        </div>
-        <div class="contacto-btns reveal d1">
-          <a
-            href="https://wa.me/5492235911777?text=Hola%20LUVA%2C%20quiero%20consultar%20sobre%20sus%20servicios"
-            target="_blank"
-            rel="noopener"
-            class="btn-wa-lg"
-          >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
-              <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
-              />
-              <path
-                d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.112 1.522 5.844L.054 23.5l5.82-1.527A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.87 9.87 0 01-5.03-1.374l-.36-.214-3.733.979 1-3.635-.235-.374A9.856 9.856 0 012.105 12C2.105 6.525 6.525 2.105 12 2.105S21.894 6.525 21.894 12 17.475 21.894 12 21.894z"
-              />
-            </svg>
-            Escribinos por WhatsApp
-          </a>
-          <a
-            href="https://www.instagram.com/luva.comunicacion/"
-            target="_blank"
-            rel="noopener"
-            class="btn-ig-lg"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-              />
-            </svg>
-            @luva.comunicacion
-          </a>
-        </div>
-        <div class="contacto-data reveal d2">
-          <div class="data-item">
-            <div class="data-label">WhatsApp</div>
-            <div class="data-value">+54 9 2235 91-1777</div>
-          </div>
-          <div class="data-item">
-            <div class="data-label">Instagram</div>
-            <div class="data-value">@luva.comunicacion</div>
-          </div>
-          <div class="data-item">
-            <div class="data-label">Sede</div>
-            <div class="data-value">Mar del Plata, Argentina</div>
-          </div>
-          <div class="data-item">
-            <div class="data-label">Cobertura</div>
-            <div class="data-value">Todo el país</div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <footer>
+    <footer class="site-footer">
       <div class="wrap">
         <div class="footer-grid">
           <div>
@@ -1439,95 +737,63 @@
           <div class="footer-col">
             <div class="footer-col-title">Servicios</div>
             <ul>
-              <li><a href="#servicios">Stands &amp; Expos</a></li>
-              <li><a href="#servicios">Eventos Corporativos</a></li>
-              <li><a href="#servicios">Activaciones</a></li>
-              <li><a href="#servicios">Imagen Institucional</a></li>
-              <li><a href="#servicios">Brand Content</a></li>
-              <li><a href="#servicios">Redes Sociales</a></li>
+              <li>
+                <a href="/servicios/#personal-para-eventos"
+                  >Promotoras &amp; personal</a
+                >
+              </li>
+              <li>
+                <a href="/servicios/#eventos-corporativos-mar-del-plata"
+                  >Eventos corporativos</a
+                >
+              </li>
+              <li>
+                <a href="/servicios/#comunicacion-corporativa">Comunicación</a>
+              </li>
             </ul>
           </div>
           <div class="footer-col">
-            <div class="footer-col-title">Contacto</div>
+            <div class="footer-col-title">Navegación</div>
             <ul>
-              <li>
-                <a
-                  href="https://wa.me/5492235911777"
-                  target="_blank"
-                  rel="noopener"
-                  >WhatsApp</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://www.instagram.com/luva.comunicacion/"
-                  target="_blank"
-                  rel="noopener"
-                  >Instagram</a
-                >
-              </li>
-              <li><a href="#nosotros">Quiénes somos</a></li>
-              <li><a href="#portfolio">Portfolio</a></li>
-              <li><a href="#sectores">Sectores</a></li>
+              <li><a href="/#galeria">Galería</a></li>
+              <li><a href="/#cobertura">Cobertura</a></li>
+              <li><a href="/#nosotros">Quiénes somos</a></li>
+              <li><a href="/contacto/">Contacto</a></li>
             </ul>
           </div>
         </div>
         <div class="footer-bottom">
-          <p class="footer-copy">
-            © 2026 LUVA Comunicación — Mar del Plata, Argentina.
-          </p>
+          <p>© 2026 LUVA Comunicación — Mar del Plata, Argentina.</p>
           <div class="footer-socials">
             <a
+              class="social-link"
               href="https://wa.me/5492235911777"
               target="_blank"
               rel="noopener"
-              class="soc-link"
               aria-label="WhatsApp"
+              >WA</a
             >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
-                />
-                <path
-                  d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.112 1.522 5.844L.054 23.5l5.82-1.527A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.87 9.87 0 01-5.03-1.374l-.36-.214-3.733.979 1-3.635-.235-.374A9.856 9.856 0 012.105 12C2.105 6.525 6.525 2.105 12 2.105S21.894 6.525 21.894 12 17.475 21.894 12 21.894z"
-                />
-              </svg>
-            </a>
             <a
+              class="social-link"
               href="https://www.instagram.com/luva.comunicacion/"
               target="_blank"
               rel="noopener"
-              class="soc-link"
               aria-label="Instagram"
+              >IG</a
             >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                />
-              </svg>
-            </a>
           </div>
         </div>
       </div>
     </footer>
+
     <a
-      href="https://wa.me/5492235911777?text=Hola%20LUVA%2C%20quiero%20consultar%20sobre%20sus%20servicios"
+      class="wa-float"
+      href="https://wa.me/5492235911777?text=Hola%20LUVA%2C%20quiero%20consultar%20sobre%20personal%20para%20un%20evento"
       target="_blank"
       rel="noopener"
-      class="wa-float"
-      aria-label="WhatsApp"
+      aria-label="Consultar por WhatsApp"
     >
-      <svg viewBox="0 0 24 24" fill="white">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path
           d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
         />
@@ -1536,5 +802,51 @@
         />
       </svg>
     </a>
+
+    <div
+      class="lightbox"
+      id="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-labelledby="lightboxTitle"
+    >
+      <h2 class="sr-only" id="lightboxTitle">
+        Galería ampliada de trabajos de LUVA
+      </h2>
+      <button
+        class="lb-close"
+        type="button"
+        data-lightbox-close
+        aria-label="Cerrar galería"
+      >
+        ✕
+      </button>
+      <button
+        class="lb-arrow previous"
+        type="button"
+        data-lightbox-previous
+        aria-label="Imagen anterior"
+      >
+        ←
+      </button>
+      <picture
+        ><source id="lbSource" type="image/webp" />
+        <img class="lb-img" id="lbImg" alt="" width="1200" height="900"
+      /></picture>
+      <button
+        class="lb-arrow next"
+        type="button"
+        data-lightbox-next
+        aria-label="Imagen siguiente"
+      >
+        →
+      </button>
+      <div class="lb-footer">
+        <span class="lb-brand">LUVA Comunicación</span>
+        <div class="lb-dots" id="lbDots"></div>
+        <span class="lb-count" id="lbCount"></span>
+      </div>
+    </div>
   </body>
 </html>

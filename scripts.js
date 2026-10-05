@@ -1,199 +1,287 @@
-const nav = document.getElementById("nav");
+(() => {
+  "use strict";
 
-window.addEventListener(
-  "scroll",
-  () => nav.classList.toggle("scrolled", scrollY > 60),
-  { passive: true },
-);
+  const focusableSelector = [
+    "a[href]",
+    "button:not([disabled])",
+    "input:not([disabled])",
+    "select:not([disabled])",
+    "textarea:not([disabled])",
+    "[tabindex]:not([tabindex='-1'])",
+  ].join(",");
 
-const mm = document.getElementById("mobileMenu");
+  const getFocusable = (container) =>
+    Array.from(container.querySelectorAll(focusableSelector)).filter(
+      (element) => !element.hasAttribute("hidden"),
+    );
 
-document.getElementById("menuToggle").addEventListener("click", () => {
-  mm.classList.add("active");
-  document.body.style.overflow = "hidden";
-});
+  const trapFocus = (event, container) => {
+    if (event.key !== "Tab") return;
 
-document.getElementById("menuClose").addEventListener("click", closeMM);
-function closeMM() {
-  mm.classList.remove("active");
-  document.body.style.overflow = "";
-}
-const ro = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) {
-        e.target.classList.add("on");
-        ro.unobserve(e.target);
+    const focusable = getFocusable(container);
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
+
+  const setPageLocked = (locked) => {
+    document.body.classList.toggle("is-locked", locked);
+  };
+
+  const initNavigation = () => {
+    const nav = document.getElementById("nav");
+    const menu = document.getElementById("mobileMenu");
+    const menuToggle = document.getElementById("menuToggle");
+    const menuClose = document.getElementById("menuClose");
+
+    if (nav) {
+      const updateNav = () => nav.classList.toggle("scrolled", scrollY > 48);
+      updateNav();
+      window.addEventListener("scroll", updateNav, { passive: true });
+    }
+
+    if (!menu || !menuToggle || !menuClose) return;
+
+    let previousFocus = null;
+
+    const openMenu = () => {
+      previousFocus = document.activeElement;
+      menu.classList.add("active");
+      menu.setAttribute("aria-hidden", "false");
+      menuToggle.setAttribute("aria-expanded", "true");
+      setPageLocked(true);
+      menuClose.focus();
+    };
+
+    const closeMenu = ({ restoreFocus = true } = {}) => {
+      menu.classList.remove("active");
+      menu.setAttribute("aria-hidden", "true");
+      menuToggle.setAttribute("aria-expanded", "false");
+      setPageLocked(false);
+
+      if (restoreFocus && previousFocus instanceof HTMLElement) {
+        previousFocus.focus();
       }
+    };
+
+    menuToggle.addEventListener("click", openMenu);
+    menuClose.addEventListener("click", () => closeMenu());
+
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        const target = link.hash ? document.querySelector(link.hash) : null;
+        closeMenu({ restoreFocus: false });
+
+        if (!target) return;
+
+        requestAnimationFrame(() => {
+          const hadTabIndex = target.hasAttribute("tabindex");
+          if (!hadTabIndex) target.setAttribute("tabindex", "-1");
+          target.focus({ preventScroll: true });
+          if (!hadTabIndex) {
+            target.addEventListener("blur", () => target.removeAttribute("tabindex"), {
+              once: true,
+            });
+          }
+        });
+      });
     });
-  },
-  { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
-);
 
-document.querySelectorAll(".reveal").forEach((el) => ro.observe(el));
+    document.addEventListener("keydown", (event) => {
+      if (!menu.classList.contains("active")) return;
+      if (event.key === "Escape") closeMenu();
+      trapFocus(event, menu);
+    });
+  };
 
-const GALLERY = [
-  {
-    alt: "Stand Bagó Neuronovo",
-    base: "stand-corporativo-01",
-    ext: "jpg",
-    width: 1086,
-    height: 1448,
-    widths: [400, 800, 1086],
-  },
-  {
-    alt: "Stand La Victoria",
-    base: "stand-corporativo-02",
-    ext: "jpg",
-    width: 1086,
-    height: 1448,
-    widths: [400, 800, 1086],
-  },
-  {
-    alt: "Stand Lindsay",
-    base: "stand-corporativo-03",
-    ext: "jpg",
-    width: 1086,
-    height: 1448,
-    widths: [400, 800, 1086],
-  },
-  {
-    alt: "Activación Rappi Velo",
-    base: "stand-corporativo-04",
-    ext: "jpg",
-    width: 1600,
-    height: 900,
-    widths: [400, 800, 1200, 1600],
-  },
-  {
-    alt: "Stand Aperol Spritz",
-    base: "stand-corporativo-05",
-    ext: "jpg",
-    width: 1086,
-    height: 1448,
-    widths: [400, 800, 1086],
-  },
-];
+  const initRevealAnimations = () => {
+    const elements = document.querySelectorAll(".reveal");
+    if (!elements.length) return;
 
-const imgs = GALLERY.map((item) => ({
-  alt: item.alt,
-  src: `./media/${item.base}.${item.ext}`,
-  srcset: item.widths
-    .map((w) => `./media/${item.base}-${w}.webp ${w}w`)
-    .join(", "),
-  sizes: `min(78vw, ${Math.round((76 * item.width) / item.height)}vh)`,
-  width: item.width,
-  height: item.height,
-}));
+    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      elements.forEach((element) => element.classList.add("on"));
+      return;
+    }
 
-let cur = 0;
-const lbEl = document.getElementById("lightbox");
-const lbImg = document.getElementById("lbImg");
-const lbSource = document.getElementById("lbSource");
-const lbCount = document.getElementById("lbCount");
-const lbDots = document.getElementById("lbDots");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("on");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+    );
 
-imgs.forEach((_, i) => {
-  const d = document.createElement("div");
-  d.className = "lb-dot";
-  d.onclick = () => goLB(i);
-  lbDots.appendChild(d);
-});
+    elements.forEach((element) => observer.observe(element));
+  };
 
-function updateDots(i) {
-  lbDots
-    .querySelectorAll(".lb-dot")
-    .forEach((d, idx) => d.classList.toggle("active", idx === i));
-}
+  const initGallery = () => {
+    const items = Array.from(document.querySelectorAll("[data-gallery-item]"));
+    const lightbox = document.getElementById("lightbox");
+    const image = document.getElementById("lbImg");
+    const source = document.getElementById("lbSource");
+    const count = document.getElementById("lbCount");
+    const dots = document.getElementById("lbDots");
+    const closeButton = lightbox?.querySelector("[data-lightbox-close]");
+    const previousButton = lightbox?.querySelector("[data-lightbox-previous]");
+    const nextButton = lightbox?.querySelector("[data-lightbox-next]");
 
-function showLB(i) {
-  const img = imgs[i];
-  cur = i;
-  lbSource.sizes = img.sizes;
-  lbSource.srcset = img.srcset;
-  lbImg.width = img.width;
-  lbImg.height = img.height;
-  lbImg.alt = img.alt;
-  lbImg.src = img.src;
-  lbCount.textContent = "0" + (i + 1) + " / 0" + imgs.length;
-  updateDots(i);
-}
+    if (
+      !items.length ||
+      !lightbox ||
+      !image ||
+      !source ||
+      !count ||
+      !dots ||
+      !closeButton ||
+      !previousButton ||
+      !nextButton
+    ) {
+      return;
+    }
 
-function lb(i) {
-  showLB(i);
-  lbEl.classList.add("open");
-  document.body.style.overflow = "hidden";
-}
+    const gallery = items.map((item) => {
+      const itemImage = item.querySelector("img");
+      const itemSource = item.querySelector("source");
 
-function goLB(i) {
-  showLB(i);
-}
+      return {
+        alt: itemImage?.alt || "Trabajo realizado por LUVA Comunicación",
+        src: itemImage?.currentSrc || itemImage?.src || "",
+        srcset: itemSource?.srcset || "",
+        sizes: "(max-width: 560px) 92vw, 78vw",
+        width: itemImage?.width || 1200,
+        height: itemImage?.height || 900,
+      };
+    });
 
-function closeLB() {
-  lbEl.style.opacity = "0";
-  lbEl.style.transition = "opacity 0.25s";
-  setTimeout(() => {
-    lbEl.classList.remove("open");
-    lbEl.style.opacity = "";
-    lbEl.style.transition = "";
-    document.body.style.overflow = "";
-  }, 250);
-}
+    let currentIndex = 0;
+    let previousFocus = null;
+    let touchStartX = 0;
 
-function moveLB(d) {
-  cur = (cur + d + imgs.length) % imgs.length;
-  lbImg.style.opacity = "0";
-  lbImg.style.transform = "scale(0.96)";
-  lbImg.style.transition = "opacity 0.18s,transform 0.18s";
-  setTimeout(() => {
-    showLB(cur);
-    lbImg.style.opacity = "1";
-    lbImg.style.transform = "scale(1)";
-    setTimeout(() => {
-      lbImg.style.transition = "";
-    }, 200);
-  }, 180);
-}
+    const dotButtons = gallery.map((_, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "lb-dot";
+      button.setAttribute("aria-label", `Ver imagen ${index + 1}`);
+      button.addEventListener("click", () => show(index));
+      dots.appendChild(button);
+      return button;
+    });
 
-lbEl.addEventListener("click", (e) => {
-  if (e.target === lbEl) closeLB();
-});
+    const updateDots = () => {
+      dotButtons.forEach((button, index) => {
+        const active = index === currentIndex;
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-current", active ? "true" : "false");
+      });
+    };
 
-document.addEventListener("keydown", (e) => {
-  if (!lbEl.classList.contains("open")) return;
-  if (e.key === "Escape") closeLB();
-  if (e.key === "ArrowRight") moveLB(1);
-  if (e.key === "ArrowLeft") moveLB(-1);
-});
+    const show = (index) => {
+      currentIndex = (index + gallery.length) % gallery.length;
+      const item = gallery[currentIndex];
 
-let tx = 0;
+      source.sizes = item.sizes;
+      source.srcset = item.srcset;
+      image.width = item.width;
+      image.height = item.height;
+      image.alt = item.alt;
+      image.src = item.src;
+      count.textContent = `${String(currentIndex + 1).padStart(2, "0")} / ${String(gallery.length).padStart(2, "0")}`;
+      updateDots();
+    };
 
-lbEl.addEventListener(
-  "touchstart",
-  (e) => {
-    tx = e.changedTouches[0].screenX;
-  },
-  { passive: true },
-);
+    const open = (index, trigger) => {
+      previousFocus = trigger;
+      show(index);
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+      setPageLocked(true);
+      closeButton.focus();
+    };
 
-lbEl.addEventListener(
-  "touchend",
-  (e) => {
-    const d = tx - e.changedTouches[0].screenX;
-    if (Math.abs(d) > 50) moveLB(d > 0 ? 1 : -1);
-  },
-  { passive: true },
-);
+    const close = () => {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      setPageLocked(false);
 
-const heroLeft = document.querySelector(".hero-left");
+      if (previousFocus instanceof HTMLElement) previousFocus.focus();
+    };
 
-if (heroLeft && matchMedia("(min-width:768px)").matches) {
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (scrollY < innerHeight * 1.2)
-        heroLeft.style.transform = `translateY(${scrollY * 0.06}px)`;
-    },
-    { passive: true },
-  );
-}
+    items.forEach((item, index) => {
+      item.addEventListener("click", () => open(index, item));
+    });
+
+    closeButton.addEventListener("click", close);
+    previousButton.addEventListener("click", () => show(currentIndex - 1));
+    nextButton.addEventListener("click", () => show(currentIndex + 1));
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) close();
+    });
+
+    lightbox.addEventListener(
+      "touchstart",
+      (event) => {
+        touchStartX = event.changedTouches[0].screenX;
+      },
+      { passive: true },
+    );
+
+    lightbox.addEventListener(
+      "touchend",
+      (event) => {
+        const distance = touchStartX - event.changedTouches[0].screenX;
+        if (Math.abs(distance) > 50) show(currentIndex + (distance > 0 ? 1 : -1));
+      },
+      { passive: true },
+    );
+
+    document.addEventListener("keydown", (event) => {
+      if (!lightbox.classList.contains("open")) return;
+
+      if (event.key === "Escape") close();
+      if (event.key === "ArrowRight") show(currentIndex + 1);
+      if (event.key === "ArrowLeft") show(currentIndex - 1);
+      trapFocus(event, lightbox);
+    });
+  };
+
+  const initContactForm = () => {
+    const form = document.querySelector("[data-contact-form]");
+    const service = document.getElementById("servicio");
+    const status = document.getElementById("formStatus");
+
+    if (service) {
+      const requestedService = new URLSearchParams(location.search).get("servicio");
+      const allowedServices = ["personal", "evento", "comunicacion", "otro"];
+      if (allowedServices.includes(requestedService)) service.value = requestedService;
+    }
+
+    if (!form || !status || form.dataset.integration !== "pending") return;
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      status.textContent =
+        "El formulario ya está preparado. La integración de envío se activará antes de publicar.";
+      status.className = "form-status is-notice";
+      status.focus();
+    });
+  };
+
+  initNavigation();
+  initRevealAnimations();
+  initGallery();
+  initContactForm();
+})();
