@@ -1013,6 +1013,89 @@ p {
     margin-right: 0.65rem;
 }
 
+.process-strip {
+    border-bottom: 1px solid var(--line-strong);
+    border-top: 1px solid var(--line-strong);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+    margin: 2rem 0;
+}
+
+.process-strip span {
+    color: var(--vino);
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 1rem 0.75rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.process-strip span + span {
+    border-left: 1px solid var(--line-soft);
+}
+
+.profile-groups {
+    border-top: 1px solid var(--line-strong);
+    margin: 2rem 0;
+}
+
+.profile-group {
+    border-bottom: 1px solid var(--line-strong);
+}
+
+.profile-group summary {
+    align-items: center;
+    color: var(--text-dark);
+    cursor: pointer;
+    display: flex;
+    font-size: 0.76rem;
+    font-weight: 600;
+    justify-content: space-between;
+    letter-spacing: 0.08em;
+    list-style: none;
+    padding: 1.15rem 0;
+    text-transform: uppercase;
+}
+
+.profile-group summary::-webkit-details-marker {
+    display: none;
+}
+
+.profile-group summary::after {
+    color: var(--gold);
+    content: "+";
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1;
+    margin-left: 1rem;
+}
+
+.profile-group[open] summary::after {
+    content: "−";
+}
+
+.profile-group p {
+    color: var(--text-mid);
+    font-size: 0.86rem;
+    font-weight: 300;
+    line-height: 1.75;
+    max-width: 760px;
+    padding: 0 2.5rem 1.3rem 0;
+}
+
+.communication-groups {
+    margin-bottom: 2.2rem;
+}
+
+.service-note {
+    background: var(--cream);
+    border-left: 3px solid var(--gold);
+    font-size: 0.88rem !important;
+    padding: 1.2rem 1.35rem;
+}
+
 /* Contact */
 .contact-details {
     background: var(--vino-dark);
@@ -1124,6 +1207,12 @@ p {
     color: var(--text-light);
     font-size: 0.74rem;
     line-height: 1.55;
+}
+
+.form-help a {
+    color: var(--vino);
+    overflow-wrap: anywhere;
+    text-underline-offset: 2px;
 }
 
 .form-actions {
