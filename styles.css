@@ -1140,6 +1140,10 @@ p {
     content: "−";
 }
 
+.profile-group.is-closing summary::after {
+    content: "+";
+}
+
 .profile-group p {
     color: var(--text-mid);
     font-size: 0.86rem;

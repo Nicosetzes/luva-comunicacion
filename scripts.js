@@ -290,7 +290,66 @@
     });
   };
 
+  const initAccordions = () => {
+    const groups = document.querySelectorAll(".profile-group");
+    if (!groups.length || !("animate" in Element.prototype)) return;
+
+    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+    const timing = { duration: 300, easing: "cubic-bezier(0.4, 0, 0.2, 1)" };
+
+    groups.forEach((details) => {
+      const summary = details.querySelector("summary");
+      const content = details.querySelector(":scope > :not(summary)");
+      if (!summary || !content) return;
+
+      let heightAnimation = null;
+      let fadeAnimation = null;
+      let closing = false;
+
+      const cancelAnimations = () => {
+        heightAnimation?.cancel();
+        fadeAnimation?.cancel();
+        heightAnimation = null;
+        fadeAnimation = null;
+      };
+
+      const run = (from, to, open) => {
+        details.style.overflow = "hidden";
+        heightAnimation = details.animate({ height: [`${from}px`, `${to}px`] }, timing);
+        fadeAnimation = content.animate({ opacity: open ? [0, 1] : [1, 0] }, { ...timing, fill: "forwards" });
+        heightAnimation.onfinish = () => {
+          if (!open) details.open = false;
+          cancelAnimations();
+          closing = false;
+          details.classList.remove("is-closing");
+          details.style.overflow = "";
+        };
+      };
+
+      summary.addEventListener("click", (event) => {
+        if (reduceMotion.matches) return;
+        event.preventDefault();
+
+        const start = details.offsetHeight;
+        cancelAnimations();
+
+        if (!details.open || closing) {
+          closing = false;
+          details.classList.remove("is-closing");
+          details.open = true;
+          run(start, details.offsetHeight, true);
+        } else {
+          closing = true;
+          details.classList.add("is-closing");
+          const border = details.offsetHeight - details.clientHeight;
+          run(start, summary.offsetHeight + border, false);
+        }
+      });
+    });
+  };
+
   initNavigation();
+  initAccordions();
   initRevealAnimations();
   initContactForm();
 })();
