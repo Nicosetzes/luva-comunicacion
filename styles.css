@@ -1,3 +1,63 @@
+/* Fuentes alojadas en el sitio (SIL Open Font License, ver /fonts/OFL-*.txt).
+   Archivos variables con subconjunto latino, igual que los que servía Google Fonts. */
+@font-face {
+    font-display: swap;
+    font-family: "Outfit";
+    font-style: normal;
+    font-weight: 300 600;
+    src: url("/fonts/outfit-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Cormorant Garamond";
+    font-style: normal;
+    font-weight: 300 400;
+    src: url("/fonts/cormorant-garamond-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Cormorant Garamond";
+    font-style: italic;
+    font-weight: 300 400;
+    src: url("/fonts/cormorant-garamond-italic-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Respaldos con métricas ajustadas: si una fuente todavía no cargó, el texto
+   ocupa casi el mismo espacio y el cambio no mueve el diseño. */
+@font-face {
+    ascent-override: 101.51%;
+    descent-override: 26.39%;
+    font-family: "Outfit Fallback";
+    line-gap-override: 0%;
+    size-adjust: 98.52%;
+    src: local("Arial"), local("ArialMT");
+}
+
+@font-face {
+    ascent-override: 96.32%;
+    descent-override: 30.36%;
+    font-family: "Cormorant Garamond Fallback";
+    font-style: normal;
+    line-gap-override: 0%;
+    size-adjust: 95.52%;
+    src: local("Times New Roman"), local("TimesNewRomanPSMT");
+}
+
+@font-face {
+    ascent-override: 107.41%;
+    descent-override: 33.86%;
+    font-family: "Cormorant Garamond Fallback";
+    font-style: italic;
+    line-gap-override: 0%;
+    size-adjust: 85.65%;
+    src: local("Times New Roman Italic"), local("TimesNewRomanPS-ItalicMT");
+}
+
 *,
 *::before,
 *::after {
@@ -32,7 +92,7 @@ html {
 body {
     background: var(--warm-white);
     color: var(--text-dark);
-    font-family: "Outfit", sans-serif;
+    font-family: "Outfit", "Outfit Fallback", sans-serif;
     overflow-x: hidden;
 }
 
@@ -274,7 +334,7 @@ p {
 
 .section-cream {
     background: var(--cream);
-    padding-top: 0;
+    padding-top: 4rem;
 }
 
 .section-dark {
@@ -301,7 +361,7 @@ p {
 .page-title,
 .callout-title {
     color: var(--text-dark);
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Cormorant Garamond", "Cormorant Garamond Fallback", serif;
     font-weight: 300;
     letter-spacing: -0.02em;
     line-height: 1.06;
@@ -448,7 +508,7 @@ p {
 
 .hero-tagline {
     color: var(--text-dark);
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Cormorant Garamond", "Cormorant Garamond Fallback", serif;
     font-size: clamp(1.3rem, 2.2vw, 1.8rem);
     font-style: italic;
     font-weight: 300;
@@ -561,9 +621,8 @@ p {
     to { transform: translateX(-50%); }
 }
 
-/* Brands */
 .brands-section {
-    background: var(--warm-white);
+    background: var(--cream);
     border-bottom: 1px solid var(--line-soft);
     padding: 2.8rem 0;
 }
@@ -580,34 +639,27 @@ p {
 
 .brands-grid {
     align-items: center;
-    display: grid;
-    gap: 2rem 1.6rem;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem clamp(1.5rem, 2.5vw, 2.25rem);
+    justify-content: center;
 }
 
 .brand-logo {
     align-items: center;
     display: flex;
-    height: 54px;
+    flex: 0 0 auto;
+    height: 60px;
     justify-content: center;
 }
 
 .brand-logo img {
-    filter: grayscale(1);
-    height: 100%;
+    height: auto;
+    max-height: 60px;
     max-width: 105px;
-    object-fit: contain;
-    opacity: 0.68;
-    transition: filter 0.25s, opacity 0.25s;
-    width: 100%;
+    width: auto;
 }
 
-.brand-logo:hover img {
-    filter: none;
-    opacity: 1;
-}
-
-/* Service summaries */
 .services-summary-grid {
     border-left: 1px solid var(--line-strong);
     border-top: 1px solid var(--line-strong);
@@ -633,7 +685,7 @@ p {
 
 .service-number {
     color: var(--gold);
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Cormorant Garamond", "Cormorant Garamond Fallback", serif;
     font-size: 2rem;
     font-style: italic;
     margin-bottom: 2.2rem;
@@ -641,7 +693,7 @@ p {
 
 .service-summary h3 {
     color: inherit;
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Cormorant Garamond", "Cormorant Garamond Fallback", serif;
     font-size: clamp(1.65rem, 2.4vw, 2.25rem);
     font-weight: 400;
     line-height: 1.08;
@@ -681,7 +733,7 @@ p {
 
 .gallery-subtitle {
     color: var(--text-dark);
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Cormorant Garamond", "Cormorant Garamond Fallback", serif;
     font-size: clamp(1.7rem, 3vw, 2.5rem);
     font-weight: 300;
     margin-bottom: 1.4rem;
@@ -700,12 +752,9 @@ p {
 
 .gallery-item {
     background: var(--cream-dark);
-    border: 0;
-    cursor: zoom-in;
     grid-column: 1 / -1;
     min-height: 330px;
     overflow: hidden;
-    padding: 0;
     position: relative;
 }
 
@@ -723,11 +772,6 @@ p {
 
 .gallery-item img {
     object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.2, 0.7, 0, 1);
-}
-
-.gallery-item:hover img {
-    transform: scale(1.035);
 }
 
 .gallery-overlay {
@@ -762,7 +806,7 @@ p {
 
 .coverage-panel h3 {
     color: var(--gold-light);
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Cormorant Garamond", "Cormorant Garamond Fallback", serif;
     font-size: 2rem;
     font-weight: 300;
     margin-bottom: 1rem;
@@ -843,7 +887,7 @@ p {
 
 .value-number {
     color: var(--gold);
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Cormorant Garamond", "Cormorant Garamond Fallback", serif;
     font-size: 1.35rem;
     font-style: italic;
 }
@@ -889,7 +933,7 @@ p {
 .callout-title {
     color: white;
     font-size: clamp(2.4rem, 5vw, 4.3rem);
-    max-width: 780px;
+    max-width: 800px;
 }
 
 .callout-title em {
@@ -913,7 +957,7 @@ p {
 
 .staff-card h2 {
     color: var(--text-dark);
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Cormorant Garamond", "Cormorant Garamond Fallback", serif;
     font-size: clamp(2rem, 4vw, 3.2rem);
     font-weight: 300;
     margin-bottom: 0.8rem;
@@ -990,14 +1034,14 @@ p {
 
 .service-detail-number {
     color: var(--gold);
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Cormorant Garamond", "Cormorant Garamond Fallback", serif;
     font-size: 2rem;
     font-style: italic;
 }
 
 .service-detail h2 {
     color: var(--text-dark);
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Cormorant Garamond", "Cormorant Garamond Fallback", serif;
     font-size: clamp(2rem, 4vw, 3.4rem);
     font-weight: 300;
     line-height: 1.1;
@@ -1085,7 +1129,7 @@ p {
 .profile-group summary::after {
     color: var(--gold);
     content: "+";
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Cormorant Garamond", "Cormorant Garamond Fallback", serif;
     font-size: 1.5rem;
     font-weight: 300;
     line-height: 1;
@@ -1125,7 +1169,7 @@ p {
 
 .contact-details h2 {
     color: white;
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Cormorant Garamond", "Cormorant Garamond Fallback", serif;
     font-size: 2.4rem;
     font-weight: 300;
     margin-bottom: 1rem;
@@ -1327,7 +1371,7 @@ p {
 
 .footer-tagline {
     color: rgba(255, 255, 255, 0.4);
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Cormorant Garamond", "Cormorant Garamond Fallback", serif;
     font-size: 1.08rem;
     font-style: italic;
     line-height: 1.65;
@@ -1422,110 +1466,6 @@ p {
     width: 28px;
 }
 
-/* Lightbox */
-.lightbox {
-    align-items: center;
-    background: rgba(5, 2, 2, 0.97);
-    display: none;
-    inset: 0;
-    justify-content: center;
-    padding: 4rem 1rem 6rem;
-    position: fixed;
-    z-index: 3000;
-}
-
-.lightbox.open {
-    display: flex;
-}
-
-.lightbox[aria-hidden="true"] {
-    visibility: hidden;
-}
-
-.lb-img {
-    box-shadow: 0 50px 160px rgba(0, 0, 0, 0.7);
-    max-height: 76vh;
-    max-width: 90vw;
-    object-fit: contain;
-}
-
-.lb-close,
-.lb-arrow,
-.lb-dot {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    color: white;
-    cursor: pointer;
-}
-
-.lb-close,
-.lb-arrow {
-    align-items: center;
-    border-radius: 50%;
-    display: flex;
-    height: 46px;
-    justify-content: center;
-    position: absolute;
-    width: 46px;
-}
-
-.lb-close {
-    right: 1.7rem;
-    top: 1.7rem;
-}
-
-.lb-arrow {
-    bottom: 1.25rem;
-}
-
-.lb-arrow.previous {
-    left: 1.2rem;
-}
-
-.lb-arrow.next {
-    right: 1.2rem;
-}
-
-.lb-footer {
-    align-items: center;
-    bottom: 1.8rem;
-    display: flex;
-    gap: 1.5rem;
-    left: 50%;
-    position: absolute;
-    transform: translateX(-50%);
-}
-
-.lb-brand,
-.lb-count {
-    color: rgba(255, 255, 255, 0.42);
-    font-size: 0.66rem;
-    letter-spacing: 0.14em;
-    white-space: nowrap;
-}
-
-.lb-brand {
-    display: none;
-}
-
-.lb-dots {
-    display: flex;
-    gap: 0.45rem;
-}
-
-.lb-dot {
-    border: 0;
-    border-radius: 100px;
-    height: 6px;
-    padding: 0;
-    width: 6px;
-}
-
-.lb-dot.active {
-    background: var(--gold);
-    width: 20px;
-}
-
 /* Reveal */
 .reveal {
     opacity: 0;
@@ -1547,7 +1487,6 @@ p {
     .hero-left { padding-block: 4rem; }
     .button-row { align-items: normal; flex-direction: row; }
     .btn-primary, .btn-secondary, .btn-wa { width: auto; }
-    .brands-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .gallery-grid { gap: 1rem; }
     .gallery-item { grid-column: span 6; min-height: 300px; }
     .coverage-panel, .contact-details { padding: 3rem; }
@@ -1558,12 +1497,6 @@ p {
     .footer-grid > :first-child { grid-column: 1 / -1; }
     .footer-bottom { align-items: center; flex-direction: row; gap: normal; }
     .wa-float { bottom: 1.5rem; height: 58px; right: 1.5rem; width: 58px; }
-    .lightbox { padding: 5rem 3.5rem; }
-    .lb-arrow { bottom: auto; top: 50%; transform: translateY(-50%); }
-    .lb-arrow.previous { left: 1.7rem; }
-    .lb-arrow.next { right: 1.7rem; }
-    .lb-footer { bottom: 1.5rem; }
-    .lb-brand { display: block; }
 }
 
 @media (min-width: 992px) {
@@ -1576,7 +1509,6 @@ p {
     .hero-layout { grid-template-columns: minmax(0, 1fr) 340px; }
     .hero-left { min-height: auto; padding: 5rem 3rem 5rem 0; }
     .hero-right { display: flex; }
-    .brands-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
     .services-summary-grid { grid-template-columns: 1fr 1fr; }
     .service-summary { min-height: 330px; }
     .service-summary.primary { grid-row: span 2; }
@@ -1584,12 +1516,9 @@ p {
     .gallery-item.wide { grid-column: span 8; }
     .coverage-layout, .about-layout { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
     .service-detail { gap: clamp(2rem, 6vw, 5rem); grid-template-columns: minmax(240px, 0.72fr) minmax(0, 1.28fr); }
-    .callout-inner { align-items: center; flex-direction: row; }
     .staff-card { align-items: center; grid-template-columns: 1fr auto; }
     .footer-grid { grid-template-columns: 1.7fr 1fr 1fr; }
     .footer-grid > :first-child { grid-column: auto; }
-    .lightbox { padding: 5rem 6rem; }
-    .lb-img { max-width: 78vw; }
 
     .contact-layout { gap: 3rem; }
     .contact-details {
@@ -1608,14 +1537,13 @@ p {
     .nav-links a { font-size: 0.69rem; letter-spacing: 0.11em; }
     .hero-layout { grid-template-columns: minmax(0, 1.05fr) minmax(380px, 0.75fr); }
     .hero-left { padding-right: 5rem; }
-    .brands-grid { grid-template-columns: repeat(9, minmax(0, 1fr)); row-gap: 1.6rem; }
     .services-summary-grid { grid-template-columns: 1.25fr 1fr 0.85fr; }
     .service-summary.primary { grid-row: auto; }
 }
 
 @media (min-width: 1366px) {
-    /* Contacto: tarjeta en columna a la izquierda y formulario al lado, con más ancho para los campos. */
-    .contact-layout { grid-template-columns: minmax(320px, 0.7fr) minmax(0, 1.3fr); }
+    .callout-inner { align-items: center; flex-direction: row; }
+    .contact-layout { align-items: stretch; grid-template-columns: minmax(320px, 0.7fr) minmax(0, 1.3fr); }
     .contact-details { display: block; }
     .contact-details > h2,
     .contact-details > p,

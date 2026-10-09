@@ -41,25 +41,20 @@
       name="twitter:image"
       content="https://luvacomunicacion.com/media/stand-corporativo-04.jpg"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+      href="/fonts/outfit-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
     <link
-      rel="stylesheet"
-      media="print"
-      onload="this.media = 'all'"
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="preload"
+      href="/fonts/cormorant-garamond-italic-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap"
-      />
-    </noscript>
     <link rel="stylesheet" href="/styles.css" />
     <script src="/scripts.js" defer></script>
   </head>
@@ -230,8 +225,8 @@
               <img
                 src="/media/logo-phillip-morris.png"
                 alt="Philip Morris"
-                width="360"
-                height="339"
+                width="582"
+                height="548"
                 loading="lazy"
               />
             </div>
@@ -343,12 +338,7 @@
               Promotoras que <em>representan</em> tu marca
             </h3>
             <div class="gallery-grid">
-              <button
-                class="gallery-item"
-                type="button"
-                data-gallery-item
-                aria-label="Ampliar imagen de promotora en evento"
-              >
+              <figure class="gallery-item">
                 <picture>
                   <source
                     type="image/webp"
@@ -368,14 +358,9 @@
                     decoding="async"
                   />
                 </picture>
-                <span class="gallery-overlay">Promotoras &amp; Staff</span>
-              </button>
-              <button
-                class="gallery-item"
-                type="button"
-                data-gallery-item
-                aria-label="Ampliar imagen de equipo promocional"
-              >
+                <figcaption class="gallery-overlay">Promotoras &amp; Staff</figcaption>
+              </figure>
+              <figure class="gallery-item">
                 <picture>
                   <source
                     type="image/webp"
@@ -395,14 +380,9 @@
                     decoding="async"
                   />
                 </picture>
-                <span class="gallery-overlay">Presencia de marca</span>
-              </button>
-              <button
-                class="gallery-item"
-                type="button"
-                data-gallery-item
-                aria-label="Ampliar imagen de staff en activación"
-              >
+                <figcaption class="gallery-overlay">Presencia de marca</figcaption>
+              </figure>
+              <figure class="gallery-item">
                 <picture>
                   <source
                     type="image/webp"
@@ -422,8 +402,8 @@
                     decoding="async"
                   />
                 </picture>
-                <span class="gallery-overlay">Activaciones</span>
-              </button>
+                <figcaption class="gallery-overlay">Activaciones</figcaption>
+              </figure>
             </div>
           </div>
 
@@ -432,12 +412,7 @@
               Eventos &amp; stands que <em>dejan presencia</em>
             </h3>
             <div class="gallery-grid">
-              <button
-                class="gallery-item"
-                type="button"
-                data-gallery-item
-                aria-label="Ampliar imagen del stand Bagó"
-              >
+              <figure class="gallery-item">
                 <picture>
                   <source
                     type="image/webp"
@@ -457,14 +432,9 @@
                     decoding="async"
                   />
                 </picture>
-                <span class="gallery-overlay">Congresos</span>
-              </button>
-              <button
-                class="gallery-item"
-                type="button"
-                data-gallery-item
-                aria-label="Ampliar imagen del stand La Victoria"
-              >
+                <figcaption class="gallery-overlay">Congresos</figcaption>
+              </figure>
+              <figure class="gallery-item">
                 <picture>
                   <source
                     type="image/webp"
@@ -484,14 +454,9 @@
                     decoding="async"
                   />
                 </picture>
-                <span class="gallery-overlay">Ferias &amp; Expos</span>
-              </button>
-              <button
-                class="gallery-item"
-                type="button"
-                data-gallery-item
-                aria-label="Ampliar imagen del stand Lindsay"
-              >
+                <figcaption class="gallery-overlay">Ferias &amp; Expos</figcaption>
+              </figure>
+              <figure class="gallery-item">
                 <picture>
                   <source
                     type="image/webp"
@@ -511,14 +476,9 @@
                     decoding="async"
                   />
                 </picture>
-                <span class="gallery-overlay">Stands</span>
-              </button>
-              <button
-                class="gallery-item wide"
-                type="button"
-                data-gallery-item
-                aria-label="Ampliar imagen de activación Rappi y VELO"
-              >
+                <figcaption class="gallery-overlay">Stands</figcaption>
+              </figure>
+              <figure class="gallery-item wide">
                 <picture>
                   <source
                     type="image/webp"
@@ -539,14 +499,9 @@
                     decoding="async"
                   />
                 </picture>
-                <span class="gallery-overlay">Activaciones de marca</span>
-              </button>
-              <button
-                class="gallery-item"
-                type="button"
-                data-gallery-item
-                aria-label="Ampliar imagen del stand Aperol Spritz"
-              >
+                <figcaption class="gallery-overlay">Activaciones de marca</figcaption>
+              </figure>
+              <figure class="gallery-item">
                 <picture>
                   <source
                     type="image/webp"
@@ -566,8 +521,8 @@
                     decoding="async"
                   />
                 </picture>
-                <span class="gallery-overlay">Experiencias de marca</span>
-              </button>
+                <figcaption class="gallery-overlay">Experiencias de marca</figcaption>
+              </figure>
             </div>
           </div>
         </div>
@@ -805,51 +760,5 @@
         />
       </svg>
     </a>
-
-    <div
-      class="lightbox"
-      id="lightbox"
-      role="dialog"
-      aria-modal="true"
-      aria-hidden="true"
-      aria-labelledby="lightboxTitle"
-    >
-      <h2 class="sr-only" id="lightboxTitle">
-        Galería ampliada de trabajos de LUVA
-      </h2>
-      <button
-        class="lb-close"
-        type="button"
-        data-lightbox-close
-        aria-label="Cerrar galería"
-      >
-        ✕
-      </button>
-      <button
-        class="lb-arrow previous"
-        type="button"
-        data-lightbox-previous
-        aria-label="Imagen anterior"
-      >
-        ←
-      </button>
-      <picture
-        ><source id="lbSource" type="image/webp" />
-        <img class="lb-img" id="lbImg" alt="" width="1200" height="900"
-      /></picture>
-      <button
-        class="lb-arrow next"
-        type="button"
-        data-lightbox-next
-        aria-label="Imagen siguiente"
-      >
-        →
-      </button>
-      <div class="lb-footer">
-        <span class="lb-brand">LUVA Comunicación</span>
-        <div class="lb-dots" id="lbDots"></div>
-        <span class="lb-count" id="lbCount"></span>
-      </div>
-    </div>
   </body>
 </html>

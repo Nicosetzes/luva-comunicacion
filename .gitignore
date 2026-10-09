@@ -4,5 +4,6 @@ original.html
 issues.md
 
 /node_modules/
+/.tmp-*/
 /config/email.php
 /.env
