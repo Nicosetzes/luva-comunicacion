@@ -262,21 +262,162 @@
     const form = document.querySelector("[data-contact-form]");
     const service = document.getElementById("servicio");
     const status = document.getElementById("formStatus");
+    const startedAt = document.getElementById("formStartedAt");
+    const submitButton = form?.querySelector("button[type='submit']");
+    const requestedService = new URLSearchParams(location.search).get("servicio");
+    const allowedServices = ["personal", "evento", "comunicacion", "otro"];
 
-    if (service) {
-      const requestedService = new URLSearchParams(location.search).get("servicio");
-      const allowedServices = ["personal", "evento", "comunicacion", "otro"];
-      if (allowedServices.includes(requestedService)) service.value = requestedService;
-    }
+    const applyRequestedService = () => {
+      if (service && allowedServices.includes(requestedService)) {
+        service.value = requestedService;
+      }
+    };
 
-    if (!form || !status || form.dataset.integration !== "pending") return;
+    const refreshStartTime = () => {
+      if (startedAt) startedAt.value = String(Date.now());
+    };
 
-    form.addEventListener("submit", (event) => {
+    applyRequestedService();
+    refreshStartTime();
+
+    if (!form || !status || !submitButton) return;
+
+    form.querySelectorAll("[data-date-mask]").forEach((input) => {
+      input.addEventListener("input", () => {
+        const caret = input.selectionStart ?? input.value.length;
+        const digitsBeforeCaret = input.value.slice(0, caret).replace(/\D/g, "").length;
+        const digits = input.value.replace(/\D/g, "").slice(0, 8);
+        const parts = [digits.slice(0, 2), digits.slice(2, 4), digits.slice(4, 8)].filter(Boolean);
+        const formatted = parts.join("-");
+
+        if (formatted === input.value) return;
+        input.value = formatted;
+
+        let position = 0;
+        let seenDigits = 0;
+        while (position < formatted.length && seenDigits < digitsBeforeCaret) {
+          if (/\d/.test(formatted[position])) seenDigits += 1;
+          position += 1;
+        }
+        input.setSelectionRange(position, position);
+      });
+    });
+
+    const defaultButtonLabel = submitButton.textContent;
+
+    const clearFieldErrors = () => {
+      form.querySelectorAll(".field-error").forEach((error) => error.remove());
+      form.querySelectorAll("[aria-invalid='true']").forEach((field) => {
+        field.removeAttribute("aria-invalid");
+        const errorId = `error-${field.name}`;
+        const describedBy = (field.getAttribute("aria-describedby") || "")
+          .split(" ")
+          .filter((id) => id && id !== errorId);
+
+        if (describedBy.length) {
+          field.setAttribute("aria-describedby", describedBy.join(" "));
+        } else {
+          field.removeAttribute("aria-describedby");
+        }
+      });
+    };
+
+    const showFieldErrors = (errors = {}) => {
+      let firstInvalidField = null;
+
+      Object.entries(errors).forEach(([name, message]) => {
+        const field = form.elements.namedItem(name);
+        if (!(field instanceof HTMLElement)) return;
+
+        const container = field.closest(".form-field");
+        if (!container) return;
+
+        const error = document.createElement("span");
+        const errorId = `error-${name}`;
+        error.className = "field-error";
+        error.id = errorId;
+        error.textContent = message;
+        container.appendChild(error);
+
+        field.setAttribute("aria-invalid", "true");
+        const describedBy = new Set(
+          (field.getAttribute("aria-describedby") || "").split(" ").filter(Boolean),
+        );
+        describedBy.add(errorId);
+        field.setAttribute("aria-describedby", Array.from(describedBy).join(" "));
+        firstInvalidField ||= field;
+      });
+
+      firstInvalidField?.focus();
+    };
+
+    const showStatus = (message, state, focus = false) => {
+      status.textContent = message;
+      status.className = `form-status is-${state}`;
+      if (focus) status.focus();
+    };
+
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      status.textContent =
-        "El formulario ya está preparado. La integración de envío se activará antes de publicar.";
-      status.className = "form-status is-notice";
-      status.focus();
+      clearFieldErrors();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.setAttribute("aria-busy", "true");
+      submitButton.textContent = "Enviando…";
+      showStatus("Estamos enviando tu consulta…", "loading");
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+
+        const contentType = response.headers.get("content-type") || "";
+        if (!contentType.includes("application/json")) {
+          throw new Error("La respuesta del servidor no es JSON.");
+        }
+
+        const result = await response.json();
+        if (!response.ok || !result.success) {
+          showFieldErrors(result.errors);
+          showStatus(
+            result.message || "No pudimos enviar la consulta. Revisá los datos e intentá nuevamente.",
+            "error",
+            !result.errors || Object.keys(result.errors).length === 0,
+          );
+          return;
+        }
+
+        form.reset();
+        applyRequestedService();
+        refreshStartTime();
+
+        const successUrl = form.dataset.successUrl;
+        if (successUrl) {
+          showStatus(result.message, "success");
+          window.location.assign(successUrl);
+          return;
+        }
+
+        showStatus(result.message, "success", true);
+      } catch (error) {
+        console.error("No se pudo enviar el formulario:", error);
+        showStatus(
+          "No pudimos enviar la consulta. Intentá nuevamente o escribinos por WhatsApp.",
+          "error",
+          true,
+        );
+      } finally {
+        submitButton.disabled = false;
+        submitButton.removeAttribute("aria-busy");
+        submitButton.textContent = defaultButtonLabel;
+      }
     });
   };
 

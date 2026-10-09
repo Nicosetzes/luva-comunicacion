@@ -165,9 +165,27 @@
           <form
             class="contact-form reveal reveal-delay-1"
             data-contact-form
-            data-integration="pending"
+            data-success-url="/gracias/"
+            action="/email.php"
             method="post"
+            accept-charset="UTF-8"
           >
+            <div class="form-honeypot" aria-hidden="true">
+              <label for="website">No completes este campo</label>
+              <input
+                id="website"
+                name="website"
+                type="text"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+            <input
+              id="formStartedAt"
+              name="form_started_at"
+              type="hidden"
+              value=""
+            />
             <div class="form-grid">
               <div class="form-field">
                 <label for="nombre">Nombre</label
@@ -238,9 +256,20 @@
               <div class="form-field">
                 <label for="fecha"
                   >Fecha estimada <span class="sr-only">opcional</span></label
-                ><input id="fecha" name="fecha" type="date" /><span
-                  class="form-help"
-                  >Opcional</span
+                ><input
+                  id="fecha"
+                  name="fecha"
+                  type="text"
+                  inputmode="numeric"
+                  autocomplete="off"
+                  placeholder="DD-MM-AAAA"
+                  maxlength="10"
+                  pattern="\d{2}-\d{2}-\d{4}"
+                  title="Usá el formato DD-MM-AAAA, por ejemplo 15-03-2027."
+                  aria-describedby="fecha-help"
+                  data-date-mask
+                /><span id="fecha-help" class="form-help"
+                  >Opcional · Formato DD-MM-AAAA</span
                 >
               </div>
               <div class="form-field">
