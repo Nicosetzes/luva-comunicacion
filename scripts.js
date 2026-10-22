@@ -348,8 +348,49 @@
     });
   };
 
+  const initCopyButtons = () => {
+    document.querySelectorAll("[data-copy]").forEach((button) => {
+      const label = button.textContent;
+      let timer;
+
+      const copyText = async (text) => {
+        try {
+          await navigator.clipboard.writeText(text);
+        } catch {
+          const field = document.createElement("textarea");
+          field.value = text;
+          field.setAttribute("readonly", "");
+          field.style.position = "fixed";
+          field.style.opacity = "0";
+          document.body.appendChild(field);
+          field.select();
+          const copied = document.execCommand("copy");
+          field.remove();
+          if (!copied) throw new Error("No se pudo copiar.");
+        }
+      };
+
+      button.addEventListener("click", async () => {
+        try {
+          await copyText(button.dataset.copy);
+          if (!button.style.width) button.style.width = `${button.offsetWidth}px`;
+          button.textContent = "¡Copiado!";
+        } catch (error) {
+          console.error(error);
+          return;
+        }
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          button.textContent = label;
+          button.style.width = "";
+        }, 2000);
+      });
+    });
+  };
+
   initNavigation();
   initAccordions();
   initRevealAnimations();
   initContactForm();
+  initCopyButtons();
 })();

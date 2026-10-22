@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /email.php
+Disallow: /config/
+Disallow: /vendor/
+
+Sitemap: https://luvacomunicacion.com/sitemap.xml

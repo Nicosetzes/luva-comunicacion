@@ -76,7 +76,6 @@ if ($originHost !== '' && $requestHost !== '' && $originHost !== $requestHost) {
     respond(403, false, 'No se pudo validar el origen de la consulta.');
 }
 
-// Honeypot: los usuarios reales no ven ni completan este campo.
 if (postString('website') !== '') {
     respond(200, true, 'Gracias. Recibimos tu consulta correctamente.');
 }
@@ -134,7 +133,6 @@ if (textLength($ciudad) < 2 || textLength($ciudad) > 100) {
 }
 
 if ($fecha !== '') {
-    // Formato argentino DD-MM-AAAA; también se aceptan "/" y "." como separadores.
     $fecha = str_replace(['/', '.'], '-', $fecha);
     $date = DateTimeImmutable::createFromFormat('!d-m-Y', $fecha);
     $dateErrors = DateTimeImmutable::getLastErrors();
@@ -185,7 +183,6 @@ if ($lastSubmission > 0 && time() - $lastSubmission < SUBMISSION_COOLDOWN_SECOND
     respond(429, false, 'Esperá unos segundos antes de enviar otra consulta.');
 }
 
-// Registrar el intento antes de contactar al SMTP para limitar reintentos automatizados.
 $_SESSION['last_submission'] = time();
 session_write_close();
 

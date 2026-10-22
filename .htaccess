@@ -1,0 +1,60 @@
+# Redirecciones canónicas
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # www -> sin www
+  RewriteCond %{HTTP_HOST} ^www\.luvacomunicacion\.com(:\d+)?$ [NC]
+  RewriteRule ^ https://luvacomunicacion.com%{REQUEST_URI} [L,R=301]
+
+  # /index.html -> /
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\s/([^?\s]*/)?index\.html[\s?] [NC]
+  RewriteRule ^(.*/)?index\.html$ /$1 [L,R=301]
+
+  # Archivos y carpetas ocultos (excepto .well-known)
+  RewriteRule (^|/)\.(?!well-known(/|$)) - [F]
+</IfModule>
+
+# Archivos sensibles
+<IfModule mod_authz_core.c>
+  <FilesMatch "^(\.|error_log$|composer\.(json|lock)$|package(-lock)?\.json$|original\.html$|issues\.md$)|\.(md|log|lock|zip|rar|7z|tar|gz|bak|sql|ini|sh)$|\.example\.php$">
+    Require all denied
+  </FilesMatch>
+</IfModule>
+<IfModule !mod_authz_core.c>
+  <FilesMatch "^(\.|error_log$|composer\.(json|lock)$|package(-lock)?\.json$|original\.html$|issues\.md$)|\.(md|log|lock|zip|rar|7z|tar|gz|bak|sql|ini|sh)$|\.example\.php$">
+    Order allow,deny
+    Deny from all
+  </FilesMatch>
+</IfModule>
+
+# Headers de seguridad
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+  Header always set Strict-Transport-Security "max-age=86400"
+  Header always unset X-Powered-By
+  Header unset X-Powered-By
+
+  <Files "email.php">
+    Header set X-Robots-Tag "noindex, nofollow"
+  </Files>
+</IfModule>
+
+# Caché (las fuentes se manejan en fonts/.htaccess)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
+  ExpiresByType image/vnd.microsoft.icon "access plus 1 month"
+</IfModule>
+<IfModule mod_headers.c>
+  # HTML, CSS y JS siempre revalidan
+  <FilesMatch "\.(html|css|js)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>

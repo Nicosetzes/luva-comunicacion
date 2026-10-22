@@ -11,24 +11,47 @@
     <meta name="robots" content="index, follow" />
     <meta name="author" content="LUVA Comunicación" />
     <meta name="theme-color" content="#6e2a2a" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="canonical" href="https://luvacomunicacion.com/contacto/" />
     <meta property="og:locale" content="es_AR" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="LUVA Comunicación" />
     <meta
       property="og:title"
-      content="Contanos qué necesitás para tu evento | LUVA"
+      content="Contacto | Solicitá personal para tu evento | LUVA"
     />
     <meta
       property="og:description"
-      content="Promotoras, personal para eventos y eventos corporativos en Mar del Plata."
+      content="Consultá a LUVA por promotoras, personal para eventos o un evento corporativo en Mar del Plata. Contanos ciudad, fecha y necesidad."
     />
     <meta property="og:url" content="https://luvacomunicacion.com/contacto/" />
     <meta
       property="og:image"
-      content="https://luvacomunicacion.com/media/stand-corporativo-04.jpg"
+      content="https://luvacomunicacion.com/media/og-luva.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="LUVA Comunicación: promotoras y staff en una activación de marca en Mar del Plata"
     />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Contacto | Solicitá personal para tu evento | LUVA"
+    />
+    <meta
+      name="twitter:description"
+      content="Consultá a LUVA por promotoras, personal para eventos o un evento corporativo en Mar del Plata. Contanos ciudad, fecha y necesidad."
+    />
+    <meta
+      name="twitter:image"
+      content="https://luvacomunicacion.com/media/og-luva.jpg"
+    />
     <link
       rel="preload"
       href="../fonts/outfit-latin.woff2"
@@ -52,6 +75,26 @@
     />
     <link rel="stylesheet" href="../styles.css" />
     <script src="../scripts.js" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://luvacomunicacion.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Contacto",
+            "item": "https://luvacomunicacion.com/contacto/"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -327,11 +370,21 @@
                 ciudad y edad en el asunto.
               </p>
             </div>
-            <a
-              class="btn-secondary"
-              href="mailto:comunicacionluva@gmail.com?subject=Postulaci%C3%B3n%20Staff%20-%20Ciudad%20-%20Edad"
-              >Enviar mi CV</a
-            >
+            <div class="button-row">
+              <a
+                class="btn-secondary"
+                href="mailto:comunicacionluva@gmail.com?subject=Postulaci%C3%B3n%20Staff%20-%20Ciudad%20-%20Edad"
+                >Enviar mi CV</a
+              >
+              <button
+                class="btn-secondary"
+                type="button"
+                data-copy="comunicacionluva@gmail.com"
+                aria-live="polite"
+              >
+                Copiar email
+              </button>
+            </div>
           </div>
         </div>
       </section>
